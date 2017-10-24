@@ -1,0 +1,96 @@
+﻿<Window x:Class="WpfApplication1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="1141" Width="2000" WindowState="Maximized">
+
+    <Canvas HorizontalAlignment="Left" Height="377" Margin="68,28,0,0" VerticalAlignment="Top" Width="1820">
+        <Image x:Name="image" Height="367" Canvas.Left="10" Width="1800" Source="Resources/table.png" Canvas.Top="2"/>
+        <Button x:Name="button" Content="Button" Canvas.Left="127" Canvas.Top="318" Width="40" Height="40"/>
+        <Button x:Name="button_Copy" Content="Button" Canvas.Left="127" Canvas.Top="256" Width="40" Height="40"/>
+        <Button x:Name="button_Copy1" Content="Button" Canvas.Left="127" Canvas.Top="196" Width="40" Height="40"/>
+        <Button x:Name="button_Copy2" Content="Button" Canvas.Left="127" Canvas.Top="134" Width="40" Height="40"/>
+        <Button x:Name="button_Copy3" Content="Button" Canvas.Left="127" Canvas.Top="78" Width="40" Height="40"/>
+        <Button x:Name="button_Copy4" Content="Button" Canvas.Left="127" Width="40" Height="40" Canvas.Top="14"/>
+        <Button x:Name="button_Copy5" Content="Button" Canvas.Left="25" Canvas.Top="318" Width="40" Height="40"/>
+        <Button x:Name="button_Copy6" Content="Button" Canvas.Left="25" Canvas.Top="256" Width="40" Height="40"/>
+        <Button x:Name="button_Copy7" Content="Button" Canvas.Left="25" Canvas.Top="196" Width="40" Height="40"/>
+        <Button x:Name="button_Copy8" Content="Button" Canvas.Left="25" Canvas.Top="134" Width="40" Height="40"/>
+        <Button x:Name="button_Copy9" Content="Button" Canvas.Left="25" Canvas.Top="78" Width="40" Height="40"/>
+        <Button x:Name="button_Copy10" Content="Button" Canvas.Left="25" Width="40" Height="40" Canvas.Top="14"/>
+        <Button x:Name="button_Copy11" Content="Button" Canvas.Left="273" Canvas.Top="318" Width="40" Height="40"/>
+        <Button x:Name="button_Copy12" Content="Button" Canvas.Left="273" Canvas.Top="256" Width="40" Height="40"/>
+        <Button x:Name="button_Copy13" Content="Button" Canvas.Left="273" Canvas.Top="196" Width="40" Height="40"/>
+        <Button x:Name="button_Copy14" Content="Button" Canvas.Left="273" Canvas.Top="134" Width="40" Height="40"/>
+        <Button x:Name="button_Copy15" Content="Button" Canvas.Left="273" Canvas.Top="78" Width="40" Height="40"/>
+        <Button x:Name="button_Copy16" Content="Button" Canvas.Left="273" Width="40" Height="40" Canvas.Top="14"/>
+        <Button x:Name="button_Copy17" Content="Button" Canvas.Left="417" Canvas.Top="318" Width="40" Height="40"/>
+        <Button x:Name="button_Copy18" Content="Button" Canvas.Left="417" Canvas.Top="256" Width="40" Height="40"/>
+        <Button x:Name="button_Copy19" Content="Button" Canvas.Left="417" Canvas.Top="196" Width="40" Height="40"/>
+        <Button x:Name="button_Copy20" Content="Button" Canvas.Left="417" Canvas.Top="134" Width="40" Height="40"/>
+        <Button x:Name="button_Copy21" Content="Button" Canvas.Left="417" Canvas.Top="78" Width="40" Height="40"/>
+        <Button x:Name="button_Copy22" Content="Button" Canvas.Left="417" Width="40" Height="40" Canvas.Top="14"/>
+        <Button x:Name="button_Copy23" Content="Button" Canvas.Left="559" Canvas.Top="318" Width="40" Height="40"/>
+        <Button x:Name="button_Copy24" Content="Button" Canvas.Left="559" Canvas.Top="256" Width="40" Height="40"/>
+        <Button x:Name="button_Copy25" Content="Button" Canvas.Left="559" Canvas.Top="196" Width="40" Height="40"/>
+        <Button x:Name="button_Copy26" Content="Button" Canvas.Left="559" Canvas.Top="134" Width="40" Height="40"/>
+        <Button x:Name="button_Copy27" Content="Button" Canvas.Left="559" Canvas.Top="78" Width="40" Height="40"/>
+        <Button x:Name="button_Copy28" Content="Button" Canvas.Left="559" Width="40" Height="40" Canvas.Top="14"/>
+        <Button x:Name="button_Copy29" Content="Button" Canvas.Left="703" Canvas.Top="318" Width="40" Height="40"/>
+        <Button x:Name="button_Copy30" Content="Button" Canvas.Left="703" Canvas.Top="256" Width="40" Height="40"/>
+        <Button x:Name="button_Copy31" Content="Button" Canvas.Left="703" Canvas.Top="196" Width="40" Height="40"/>
+        <Button x:Name="button_Copy32" Content="Button" Canvas.Left="703" Canvas.Top="134" Width="40" Height="40"/>
+        <Button x:Name="button_Copy33" Content="Button" Canvas.Left="703" Canvas.Top="78" Width="40" Height="40"/>
+        <Button x:Name="button_Copy34" Content="Button" Canvas.Left="703" Width="40" Height="40" Canvas.Top="14"/>
+        <Button x:Name="button_Copy35" Content="Button" Canvas.Left="849" Canvas.Top="318" Width="40" Height="40"/>
+        <Button x:Name="button_Copy36" Content="Button" Canvas.Left="849" Canvas.Top="256" Width="40" Height="40"/>
+        <Button x:Name="button_Copy37" Content="Button" Canvas.Left="849" Canvas.Top="196" Width="40" Height="40"/>
+        <Button x:Name="button_Copy38" Content="Button" Canvas.Left="849" Canvas.Top="134" Width="40" Height="40"/>
+        <Button x:Name="button_Copy39" Content="Button" Canvas.Left="849" Canvas.Top="78" Width="40" Height="40"/>
+        <Button x:Name="button_Copy40" Content="Button" Canvas.Left="849" Width="40" Height="40" Canvas.Top="14"/>
+        <Button x:Name="button_Copy41" Content="Button" Canvas.Left="995" Canvas.Top="318" Width="40" Height="40"/>
+        <Button x:Name="button_Copy42" Content="Button" Canvas.Left="995" Canvas.Top="256" Width="40" Height="40"/>
+        <Button x:Name="button_Copy43" Content="Button" Canvas.Left="995" Canvas.Top="196" Width="40" Height="40"/>
+        <Button x:Name="button_Copy44" Content="Button" Canvas.Left="995" Canvas.Top="134" Width="40" Height="40"/>
+        <Button x:Name="button_Copy45" Content="Button" Canvas.Left="995" Canvas.Top="78" Width="40" Height="40"/>
+        <Button x:Name="button_Copy46" Content="Button" Canvas.Left="995" Width="40" Height="40" Canvas.Top="14"/>
+        <Button x:Name="button_Copy47" Content="Button" Canvas.Left="1139" Canvas.Top="318" Width="40" Height="40"/>
+        <Button x:Name="button_Copy48" Content="Button" Canvas.Left="1139" Canvas.Top="256" Width="40" Height="40"/>
+        <Button x:Name="button_Copy49" Content="Button" Canvas.Left="1139" Canvas.Top="196" Width="40" Height="40"/>
+        <Button x:Name="button_Copy50" Content="Button" Canvas.Left="1139" Canvas.Top="134" Width="40" Height="40"/>
+        <Button x:Name="button_Copy51" Content="Button" Canvas.Left="1139" Canvas.Top="78" Width="40" Height="40"/>
+        <Button x:Name="button_Copy52" Content="Button" Canvas.Left="1139" Width="40" Height="40" Canvas.Top="14"/>
+        <Button x:Name="button_Copy53" Content="Button" Canvas.Left="1281" Canvas.Top="318" Width="40" Height="40"/>
+        <Button x:Name="button_Copy54" Content="Button" Canvas.Left="1281" Canvas.Top="256" Width="40" Height="40"/>
+        <Button x:Name="button_Copy55" Content="Button" Canvas.Left="1281" Canvas.Top="196" Width="40" Height="40"/>
+        <Button x:Name="button_Copy56" Content="Button" Canvas.Left="1281" Canvas.Top="134" Width="40" Height="40"/>
+        <Button x:Name="button_Copy57" Content="Button" Canvas.Left="1281" Canvas.Top="78" Width="40" Height="40"/>
+        <Button x:Name="button_Copy58" Content="Button" Canvas.Left="1281" Width="40" Height="40" Canvas.Top="14"/>
+        <Button x:Name="button_Copy59" Content="Button" Canvas.Left="1425" Canvas.Top="318" Width="40" Height="40"/>
+        <Button x:Name="button_Copy60" Content="Button" Canvas.Left="1425" Canvas.Top="256" Width="40" Height="40"/>
+        <Button x:Name="button_Copy61" Content="Button" Canvas.Left="1425" Canvas.Top="196" Width="40" Height="40"/>
+        <Button x:Name="button_Copy62" Content="Button" Canvas.Left="1425" Canvas.Top="134" Width="40" Height="40"/>
+        <Button x:Name="button_Copy63" Content="Button" Canvas.Left="1425" Canvas.Top="78" Width="40" Height="40"/>
+        <Button x:Name="button_Copy64" Content="Button" Canvas.Left="1425" Width="40" Height="40" Canvas.Top="14"/>
+        <Button x:Name="button_Copy65" Content="Button" Canvas.Left="1569" Canvas.Top="318" Width="40" Height="40"/>
+        <Button x:Name="button_Copy66" Content="Button" Canvas.Left="1569" Canvas.Top="256" Width="40" Height="40"/>
+        <Button x:Name="button_Copy67" Content="Button" Canvas.Left="1569" Canvas.Top="196" Width="40" Height="40"/>
+        <Button x:Name="button_Copy68" Content="Button" Canvas.Left="1569" Canvas.Top="134" Width="40" Height="40"/>
+        <Button x:Name="button_Copy69" Content="Button" Canvas.Left="1569" Canvas.Top="78" Width="40" Height="40"/>
+        <Button x:Name="button_Copy70" Content="Button" Canvas.Left="1569" Width="40" Height="40" Canvas.Top="14"/>
+        <Button x:Name="button_Copy71" Content="Button" Canvas.Left="1713" Canvas.Top="318" Width="40" Height="40"/>
+        <Button x:Name="button_Copy72" Content="Button" Canvas.Left="1713" Canvas.Top="256" Width="40" Height="40"/>
+        <Button x:Name="button_Copy73" Content="Button" Canvas.Left="1713" Canvas.Top="196" Width="40" Height="40"/>
+        <Button x:Name="button_Copy74" Content="Button" Canvas.Left="1713" Canvas.Top="134" Width="40" Height="40"/>
+        <Button x:Name="button_Copy75" Content="Button" Canvas.Left="1713" Canvas.Top="78" Width="40" Height="40"/>
+        <Button x:Name="button_Copy76" Content="Button" Canvas.Left="1713" Width="40" Height="40" Canvas.Top="14"/>
+    </Canvas>
+
+
+
+
+
+</Window>
