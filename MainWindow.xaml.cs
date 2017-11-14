@@ -26,5 +26,9 @@ namespace WpfApplication1
 
         }
 
+        private void NoteToggle(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
