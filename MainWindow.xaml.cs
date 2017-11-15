@@ -30,5 +30,10 @@ namespace WpfApplication1
         {
 
         }
+
+        private void button_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -27,7 +27,7 @@
         </Canvas.Resources>
 
         <Image x:Name="image" Height="367" Canvas.Left="10" Width="1800" Source="Resources/table.png" Canvas.Top="2"/>
-        <ToggleButton x:Name="button" Click="NoteToggle" Content="F" Canvas.Left="127" Canvas.Top="318" />
+        <ToggleButton x:Name="button" Click="NoteToggle" Content="F" Canvas.Left="127" Canvas.Top="318" Checked="button_Checked" />
         <ToggleButton x:Name="button_Copy" Click="NoteToggle" Content="Bb" Canvas.Left="127" Canvas.Top="256" />
         <ToggleButton x:Name="button_Copy1" Click="NoteToggle" Content="Eb" Canvas.Left="127" Canvas.Top="196" />
         <ToggleButton x:Name="button_Copy2" Click="NoteToggle" Content="Ab" Canvas.Left="127" Canvas.Top="134" />
@@ -51,13 +51,13 @@
         <ToggleButton x:Name="button_Copy20" Click="NoteToggle" Content="Bb" Canvas.Left="417" Canvas.Top="134" Width="40" Height="40"/>
         <ToggleButton x:Name="button_Copy21" Click="NoteToggle" Content="D" Canvas.Left="417" Canvas.Top="78" Width="40" Height="40"/>
         <ToggleButton x:Name="button_Copy22" Click="NoteToggle" Content="G" Canvas.Left="417" Width="40" Height="40" Canvas.Top="14"/>
-        <ToggleButton x:Name="button_Copy23" Click="NoteToggle" Content="Button" Canvas.Left="559" Canvas.Top="318" Width="40" Height="40"/>
-        <ToggleButton x:Name="button_Copy24" Click="NoteToggle" Content="Button" Canvas.Left="559" Canvas.Top="256" Width="40" Height="40"/>
-        <ToggleButton x:Name="button_Copy25" Click="NoteToggle" Content="Button" Canvas.Left="559" Canvas.Top="196" Width="40" Height="40"/>
-        <ToggleButton x:Name="button_Copy26" Click="NoteToggle" Content="Button" Canvas.Left="559" Canvas.Top="134" Width="40" Height="40"/>
-        <ToggleButton x:Name="button_Copy27" Click="NoteToggle" Content="Button" Canvas.Left="559" Canvas.Top="78" Width="40" Height="40"/>
-        <ToggleButton x:Name="button_Copy28" Click="NoteToggle" Content="Button" Canvas.Left="559" Width="40" Height="40" Canvas.Top="14"/>
-        <ToggleButton x:Name="button_Copy29" Click="NoteToggle" Content="Button" Canvas.Left="703" Canvas.Top="318" Width="40" Height="40"/>
+        <ToggleButton x:Name="button_Copy23" Click="NoteToggle" Content="Ab" Canvas.Left="559" Canvas.Top="318" Width="40" Height="40"/>
+        <ToggleButton x:Name="button_Copy24" Click="NoteToggle" Content="Db" Canvas.Left="559" Canvas.Top="256" Width="40" Height="40"/>
+        <ToggleButton x:Name="button_Copy25" Click="NoteToggle" Content="Gb" Canvas.Left="559" Canvas.Top="196" Width="40" Height="40"/>
+        <ToggleButton x:Name="button_Copy26" Click="NoteToggle" Content="B" Canvas.Left="559" Canvas.Top="134" Width="40" Height="40"/>
+        <ToggleButton x:Name="button_Copy27" Click="NoteToggle" Content="Eb" Canvas.Left="559" Canvas.Top="78" Width="40" Height="40"/>
+        <ToggleButton x:Name="button_Copy28" Click="NoteToggle" Content="Ab" Canvas.Left="559" Width="40" Height="40" Canvas.Top="14"/>
+        <ToggleButton x:Name="button_Copy29" Click="NoteToggle" Content="A" Canvas.Left="703" Canvas.Top="318" Width="40" Height="40"/>
         <ToggleButton x:Name="button_Copy30" Click="NoteToggle" Content="Button" Canvas.Left="703" Canvas.Top="256" Width="40" Height="40"/>
         <ToggleButton x:Name="button_Copy31" Click="NoteToggle" Content="Button" Canvas.Left="703" Canvas.Top="196" Width="40" Height="40"/>
         <ToggleButton x:Name="button_Copy32" Click="NoteToggle" Content="Button" Canvas.Left="703" Canvas.Top="134" Width="40" Height="40"/>
