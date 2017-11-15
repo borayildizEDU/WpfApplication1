@@ -27,6 +27,7 @@
         </Canvas.Resources>
 
         <Image x:Name="image" Height="367" Canvas.Left="10" Width="1800" Source="Resources/table.png" Canvas.Top="2"/>
+<<<<<<< HEAD
         <ToggleButton x:Name="button" Click="NoteToggle" Content="F" Canvas.Left="127" Canvas.Top="318" Checked="button_Checked" />
         <ToggleButton x:Name="button_Copy" Click="NoteToggle" Content="Bb" Canvas.Left="127" Canvas.Top="256" />
         <ToggleButton x:Name="button_Copy1" Click="NoteToggle" Content="Eb" Canvas.Left="127" Canvas.Top="196" />
@@ -46,6 +47,27 @@
         <ToggleButton x:Name="button_Copy15" Click="NoteToggle" Content="Db" Canvas.Left="273" Canvas.Top="78" />
         <ToggleButton x:Name="button_Copy16" Click="NoteToggle" Content="Gb" Canvas.Left="273" Width="40" Height="40" Canvas.Top="14"/>
         <ToggleButton x:Name="button_Copy17" Click="NoteToggle" Content="G" Canvas.Left="417" Canvas.Top="318" Width="40" Height="40"/>
+=======
+        <ToggleButton x:Name="button_6_1" Command ="{Binding NoteClickCommand}" CommandParameter="6:1" Content="F" Canvas.Left="127" Canvas.Top="318" />
+        <ToggleButton x:Name="button_Copy" Command ="{Binding NoteClickCommand}" Content="Bb" Canvas.Left="127" Canvas.Top="256" />
+        <ToggleButton x:Name="button_Copy1" Command ="{Binding NoteClickCommand}" Content="Eb" Canvas.Left="127" Canvas.Top="196" />
+        <ToggleButton x:Name="button_Copy2" Command ="{Binding NoteClickCommand}" Content="Ab" Canvas.Left="127" Canvas.Top="134" />
+        <ToggleButton x:Name="button_Copy3" Command ="{Binding NoteClickCommand}" Content="C" Canvas.Left="127" Canvas.Top="78" />
+        <ToggleButton x:Name="button_Copy4" Command ="{Binding NoteClickCommand}" Content="F" Canvas.Left="127" Canvas.Top="14"/>
+        <ToggleButton x:Name="button_Copy5" Command ="{Binding NoteClickCommand}" CommandParameter="6:0" Content="E" Canvas.Left="25" Canvas.Top="318" />
+        <ToggleButton x:Name="button_Copy6" Command ="{Binding NoteClickCommand}" Content="A" Canvas.Left="25" Canvas.Top="256" />
+        <ToggleButton x:Name="button_Copy7" Command ="{Binding NoteClickCommand}" Content="D" Canvas.Left="25" Canvas.Top="196" />
+        <ToggleButton x:Name="button_Copy8" Command ="{Binding NoteClickCommand}" Content="G" Canvas.Left="25" Canvas.Top="134" />
+        <ToggleButton x:Name="button_Copy9" Command ="{Binding NoteClickCommand}" Content="B" Canvas.Left="25" Canvas.Top="78" />
+        <ToggleButton x:Name="button_Copy10" Command ="{Binding NoteClickCommand}" Content="E" Canvas.Left="25" Canvas.Top="14"/>
+        <ToggleButton x:Name="button_Copy11" Command ="{Binding NoteClickCommand}" Content="Gb" Canvas.Left="273" Canvas.Top="318" />
+        <ToggleButton x:Name="button_Copy12" Command ="{Binding NoteClickCommand}" Content="B" Canvas.Left="273" Canvas.Top="256" />
+        <ToggleButton x:Name="button_Copy13" Command ="{Binding NoteClickCommand}" Content="E" Canvas.Left="273" Canvas.Top="196" />
+        <ToggleButton x:Name="button_Copy14" Command ="{Binding NoteClickCommand}" Content="A" Canvas.Left="273" Canvas.Top="134" />
+        <ToggleButton x:Name="button_Copy15" Command ="{Binding NoteClickCommand}" Content="Db" Canvas.Left="273" Canvas.Top="78" />
+        <ToggleButton x:Name="button_Copy16" Command ="{Binding NoteClickCommand}" Content="Gb" Canvas.Left="273" Width="40" Height="40" Canvas.Top="14"/>
+        <ToggleButton x:Name="button_Copy17" Command ="{Binding NoteClickCommand}" Content="G" Canvas.Left="417" Canvas.Top="318" Width="40" Height="40"/>
+>>>>>>> parent of c6c921e... Revert "ModelView Try"
         <ToggleButton x:Name="button_Copy18" Click="NoteToggle" Content="C" Canvas.Left="417" Canvas.Top="256" Width="40" Height="40"/>
         <ToggleButton x:Name="button_Copy19" Click="NoteToggle" Content="F" Canvas.Left="417" Canvas.Top="196" Width="40" Height="40"/>
         <ToggleButton x:Name="button_Copy20" Click="NoteToggle" Content="Bb" Canvas.Left="417" Canvas.Top="134" Width="40" Height="40"/>

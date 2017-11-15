@@ -26,6 +26,7 @@ namespace WpfApplication1
 
         }
 
+<<<<<<< HEAD
         private void NoteToggle(object sender, RoutedEventArgs e)
         {
 
@@ -35,5 +36,7 @@ namespace WpfApplication1
         {
 
         }
+=======
+>>>>>>> parent of c6c921e... Revert "ModelView Try"
     }
 }
