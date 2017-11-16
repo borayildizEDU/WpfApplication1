@@ -11,6 +11,12 @@ using System.Windows;
 namespace WpfApplication1.ViewModel{
 
   public class ChartViewModel{
+    ChartModel ChartModel = new ChartModel();
+
+    // Update handler
+    public ObservableCollection<ChartModel> Chart { get; set; }
+
+
     // Command handler
     private ICommand m_ButtonCommand;
     public ICommand ButtonCommand {
@@ -23,7 +29,7 @@ namespace WpfApplication1.ViewModel{
     }
 
     public ChartViewModel() {
-      ButtonCommand = new ClickCommand(OnClick);
+      ButtonCommand = new ClickCommand(new Action<object>(OnClick));
     }
 
     public void LoadChart() {
@@ -31,14 +37,16 @@ namespace WpfApplication1.ViewModel{
     }
 
 
-    private void OnClick() {
-      MessageBox.Show("Hi");
+    public void OnClick(object obj) {
+      //MessageBox.Show(obj.ToString());
+      ChartModel.Note += obj.ToString();
+
+
     }
 
 
 
-    // Update handler
-    public ObservableCollection<ChartModel> Chart { get; set; }
+
   }
 
 

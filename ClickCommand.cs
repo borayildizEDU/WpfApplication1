@@ -7,45 +7,30 @@ using System.Windows.Input;
 
 namespace WpfApplication1 {
   public class ClickCommand : ICommand {
-    Action _TargetExecuteMethod;
-    Func<bool> _TargetCanExecuteMethod;
+    private Action<object> _action;
 
-    public ClickCommand(Action executeMethod) {
-      _TargetExecuteMethod = executeMethod;
+    public ClickCommand(Action<object> action) {
+      _action = action;
     }
 
-    public ClickCommand(Action executeMethod, Func<bool> canExecuteMethod) {
-      _TargetExecuteMethod = executeMethod;
-      _TargetCanExecuteMethod = canExecuteMethod;
+    #region ICommand Members
+
+    public bool CanExecute(object parameter) {
+      return true;
     }
 
-    public void RaiseCanExecuteChanged() {
-      CanExecuteChanged(this, EventArgs.Empty);
-    }
+    public event EventHandler CanExecuteChanged;
 
-    bool ICommand.CanExecute(object parameter) {
-
-      if (_TargetCanExecuteMethod != null) {
-        return _TargetCanExecuteMethod();
+    public void Execute(object parameter) {
+      if (parameter != null) {
+        _action(parameter);
       }
-
-      if (_TargetExecuteMethod != null) {
-        return true;
-      }
-
-      return false;
-    }
-		
-    // Beware - should use weak references if command instance lifetime 
-    // is longer than lifetime of UI objects that get hooked up to command
-
-    // Prism commands solve this in their implementation 
-    public event EventHandler CanExecuteChanged = delegate { };
-
-    void ICommand.Execute(object parameter) {
-      if (_TargetExecuteMethod != null) {
-        _TargetExecuteMethod();
+      else {
+        _action("No parameter assigned !!!");
       }
     }
+
+    #endregion
   }
 }
+

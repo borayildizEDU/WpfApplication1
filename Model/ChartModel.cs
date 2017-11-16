@@ -6,28 +6,35 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 
 namespace WpfApplication1.Model{
-  public class ChartModel { }
 
-  public class Chart : INotifyPropertyChanged {
-    private string note;
+  
+
+  public class ChartModel : INotifyPropertyChanged {
+    private string m_Note;
+
+    #region INotifyPropertyChanged Members
+
+    public event PropertyChangedEventHandler PropertyChanged;
+
+    private void OnPropertyChanged(string propertyName) {
+      if (PropertyChanged != null) {
+        PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+      }
+    }
+
+    #endregion
+
 
     public string Note {
-      get { return note; }
+      get { return m_Note; }
 
       set {
-        if (note != value) {
-          note = value;
-          RaisePropertyChanged("Note");
+        if (m_Note != value) {
+          m_Note = value;
+          OnPropertyChanged("Note");
         }
       }
     }
 
-    public event PropertyChangedEventHandler PropertyChanged;
-
-    private void RaisePropertyChanged(string property) {
-      if (PropertyChanged != null) {
-        PropertyChanged(this, new PropertyChangedEventArgs(property));
-      }
-    }
   }
 }

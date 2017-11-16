@@ -25,30 +25,31 @@
             </Canvas.Resources>
 
             <Image x:Name="image" Height="367" Canvas.Left="10" Width="1800" Source="../Resources/table.png" Canvas.Top="2"/>
-            <ToggleButton x:Name="button" Command ="{Binding ButtonCommand}" CommandParameter="6:1" Content="F" Canvas.Left="127" Canvas.Top="318"/>
+            <ToggleButton x:Name="btn0" Command ="{Binding ButtonCommand}" CommandParameter="E:6:0" Content="E" Canvas.Left="25" Canvas.Top="318" />
+            <ToggleButton x:Name="btn1" Command ="{Binding ButtonCommand}" CommandParameter="A:5:0" Content="A" Canvas.Left="25" Canvas.Top="256" />
+            <ToggleButton x:Name="btn2" Command ="{Binding ButtonCommand}" CommandParameter="D:4:0" Content="D" Canvas.Left="25" Canvas.Top="196" />
+            <ToggleButton x:Name="btn3" Command ="{Binding ButtonCommand}" CommandParameter="G:3:0" Content="G" Canvas.Left="25" Canvas.Top="134" />
+            <ToggleButton x:Name="btn4" Command ="{Binding ButtonCommand}" CommandParameter="B:2:0" Content="B" Canvas.Left="25" Canvas.Top="78" />
+            <ToggleButton x:Name="btn5" Command ="{Binding ButtonCommand}" CommandParameter="E:1:0" Content="E" Canvas.Left="25" Canvas.Top="14"/>
+            
+            <ToggleButton x:Name="button" Command ="{Binding ButtonCommand}" CommandParameter="F:6:1" Content="F" Canvas.Left="127" Canvas.Top="318"/>
             <ToggleButton x:Name="button_Copy" Command ="{Binding ButtonCommand}" CommandParameter="6:1" Content="Bb" Canvas.Left="127" Canvas.Top="256" />
             <ToggleButton x:Name="button_Copy1" Command ="{Binding ButtonCommand}" CommandParameter="6:1" Content="Eb" Canvas.Left="127" Canvas.Top="196" />
             <ToggleButton x:Name="button_Copy2" Command ="{Binding ButtonCommand}" CommandParameter="6:1" Content="Ab" Canvas.Left="127" Canvas.Top="134" />
             <ToggleButton x:Name="button_Copy3" Command ="{Binding ButtonCommand}" CommandParameter="6:1" Content="C" Canvas.Left="127" Canvas.Top="78" />
             <ToggleButton x:Name="button_Copy4" Command ="{Binding ButtonCommand}" CommandParameter="6:1" Content="F" Canvas.Left="127" Canvas.Top="14"/>
-            <ToggleButton x:Name="button_Copy5" Command ="{Binding ButtonCommand}" CommandParameter="6:1" Content="E" Canvas.Left="25" Canvas.Top="318" />
-            <ToggleButton x:Name="button_Copy6" Command ="{Binding ButtonCommand}" CommandParameter="6:1" Content="A" Canvas.Left="25" Canvas.Top="256" />
-            <ToggleButton x:Name="button_Copy7" Command ="{Binding ButtonCommand}" CommandParameter="6:1" Content="D" Canvas.Left="25" Canvas.Top="196" />
-            <ToggleButton x:Name="button_Copy8" Command ="{Binding ButtonCommand}" CommandParameter="6:1" Content="G" Canvas.Left="25" Canvas.Top="134" />
-            <ToggleButton x:Name="button_Copy9" Command ="{Binding ButtonCommand}" CommandParameter="6:1" Content="B" Canvas.Left="25" Canvas.Top="78" />
-            <ToggleButton x:Name="button_Copy10" Command ="{Binding ButtonCommand}" CommandParameter="6:1" Content="E" Canvas.Left="25" Canvas.Top="14"/>
             <ToggleButton x:Name="button_Copy11" Command ="{Binding ButtonCommand}" CommandParameter="6:1" Content="Gb" Canvas.Left="273" Canvas.Top="318" />
             <ToggleButton x:Name="button_Copy12" Command ="{Binding ButtonCommand}" CommandParameter="6:1" Content="B" Canvas.Left="273" Canvas.Top="256" />
             <ToggleButton x:Name="button_Copy13" Command ="{Binding ButtonCommand}" CommandParameter="6:1" Content="E" Canvas.Left="273" Canvas.Top="196" />
             <ToggleButton x:Name="button_Copy14" Command ="{Binding ButtonCommand}" CommandParameter="6:1" Content="A" Canvas.Left="273" Canvas.Top="134" />
             <ToggleButton x:Name="button_Copy15" Command ="{Binding ButtonCommand}" CommandParameter="6:1" Content="Db" Canvas.Left="273" Canvas.Top="78" />
-            <ToggleButton x:Name="button_Copy16" Command ="{Binding ButtonCommand}" CommandParameter="6:1" Content="Gb" Canvas.Left="273" Width="40" Height="40" Canvas.Top="14"/>
-            <ToggleButton x:Name="button_Copy17" Command ="{Binding ButtonCommand}" CommandParameter="6:1" Content="G" Canvas.Left="417" Canvas.Top="318" Width="40" Height="40"/>
-            <ToggleButton x:Name="button_Copy18" Command ="{Binding ButtonCommand}" CommandParameter="6:1" Content="C" Canvas.Left="417" Canvas.Top="256" Width="40" Height="40"/>
-            <ToggleButton x:Name="button_Copy19" Command ="{Binding ButtonCommand}" CommandParameter="6:1" Content="F" Canvas.Left="417" Canvas.Top="196" Width="40" Height="40"/>
-            <ToggleButton x:Name="button_Copy20" Command ="{Binding ButtonCommand}" CommandParameter="6:1" Content="Bb" Canvas.Left="417" Canvas.Top="134" Width="40" Height="40"/>
-            <ToggleButton x:Name="button_Copy21" Command ="{Binding ButtonCommand}" CommandParameter="6:1" Content="D" Canvas.Left="417" Canvas.Top="78" Width="40" Height="40"/>
-            <ToggleButton x:Name="button_Copy22" Command ="{Binding ButtonCommand}" CommandParameter="6:1" Content="G" Canvas.Left="417" Width="40" Height="40" Canvas.Top="14"/>
+            <ToggleButton x:Name="button_Copy16" Command ="{Binding ButtonCommand}" CommandParameter="6:1" Content="Gb" Canvas.Left="273" Canvas.Top="14"/>
+            <ToggleButton x:Name="button_Copy17" Command ="{Binding ButtonCommand}" CommandParameter="6:1" Content="G" Canvas.Left="417" Canvas.Top="318"/>
+            <ToggleButton x:Name="button_Copy18" Command ="{Binding ButtonCommand}" CommandParameter="6:1" Content="C" Canvas.Left="417" Canvas.Top="256"/>
+            <ToggleButton x:Name="button_Copy19" Command ="{Binding ButtonCommand}" CommandParameter="6:1" Content="F" Canvas.Left="417" Canvas.Top="196"/>
+            <ToggleButton x:Name="button_Copy20" Command ="{Binding ButtonCommand}" CommandParameter="6:1" Content="Bb" Canvas.Left="417" Canvas.Top="134"/>
+            <ToggleButton x:Name="button_Copy21" Command ="{Binding ButtonCommand}" CommandParameter="6:1" Content="D" Canvas.Left="417" Canvas.Top="78"/>
+            <ToggleButton x:Name="button_Copy22" Command ="{Binding ButtonCommand}" CommandParameter="6:1" Content="G" Canvas.Left="417" Canvas.Top="14"/>
             <ToggleButton x:Name="button_Copy23" Command ="{Binding ButtonCommand}" CommandParameter="6:1" Content="Ab" Canvas.Left="559" Canvas.Top="318" Width="40" Height="40"/>
             <ToggleButton x:Name="button_Copy24" Command ="{Binding ButtonCommand}" CommandParameter="6:1" Content="Db" Canvas.Left="559" Canvas.Top="256" Width="40" Height="40"/>
             <ToggleButton x:Name="button_Copy25" Command ="{Binding ButtonCommand}" CommandParameter="6:1" Content="Gb" Canvas.Left="559" Canvas.Top="196" Width="40" Height="40"/>
