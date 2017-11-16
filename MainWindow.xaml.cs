@@ -26,16 +26,13 @@ namespace WpfApplication1
 
         }
 
+    private void ChartViewControl_Loaded(object sender, RoutedEventArgs e) {
+      WpfApplication1.ViewModel.ChartViewModel chartViewModelObject =
+         new WpfApplication1.ViewModel.ChartViewModel();
+      chartViewModelObject.LoadChart();
 
-        private void NoteToggle(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void button_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
+      ChartViewControl.DataContext = chartViewModelObject;
     }
+  }
+
 }

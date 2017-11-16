@@ -8,47 +8,41 @@ using System.Collections.ObjectModel;
 using System.Windows.Input;
 using System.Windows;
 
-namespace WpfApplication1.ViewModel
-{
-    public class ChartViewModel
-    {
+namespace WpfApplication1.ViewModel{
 
-        public ObservableCollection<ChartModel> Chart
-        {
-            get;
-            set;
-        }
+  public class ChartViewModel{
+    // Command handler
+    private ICommand m_ButtonCommand;
+    public ICommand ButtonCommand {
+      get {
+        return m_ButtonCommand;
+      }
+      set {
+        m_ButtonCommand = value;
+      }
+    }
 
-        private ICommand _clickCommand;
-        public ICommand ClickCommand
-        {
-            get
-            {
-                return _clickCommand ?? (_clickCommand = new CommandHandler(() => MyAction(), _canExecute));
-            }
-        }
-        private bool _canExecute;
-        public void MyAction()
-        {
+    public ChartViewModel() {
+      ButtonCommand = new ClickCommand(OnClick);
+    }
 
-        }
+    public void LoadChart() {
 
     }
 
 
-    public class CommandHandler : ICommand
-    {
-        private Action _action;
-        private bool _canExecute;
-        public CommandHandler(Action action, bool canExecute)
-        {
-            _action = action;
-            _canExecute = canExecute;
-        }
-
-        public bool CanExecute(object parameter)
-        {
-            return _canExecute;
-        }
+    private void OnClick() {
+      MessageBox.Show("Hi");
     }
+
+
+
+    // Update handler
+    public ObservableCollection<ChartModel> Chart { get; set; }
+  }
+
+
+
+
+
 }
