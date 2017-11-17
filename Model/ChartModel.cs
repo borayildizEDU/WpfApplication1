@@ -10,13 +10,13 @@ namespace WpfApplication1.Model{
   public class ChartModel { }
 
   public class SelectedNote : INotifyPropertyChanged {
-    private string m_ShortName;
+    private string shortName;
 
     #region INotifyPropertyChanged Members
 
     public event PropertyChangedEventHandler PropertyChanged;
 
-    private void OnPropertyChanged(string propertyName) {
+    private void RaisePropertyChanged(string propertyName) {
       if (PropertyChanged != null) {
         PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
       }
@@ -26,12 +26,12 @@ namespace WpfApplication1.Model{
 
 
     public string ShortName {
-      get { return m_ShortName; }
+      get { return shortName; }
 
       set {
-        if (m_ShortName != value) {
-          m_ShortName = value;
-          OnPropertyChanged("ShortName");
+        if (shortName != value) {
+          shortName = value;
+          RaisePropertyChanged("ShortName");
         }
       }
     }

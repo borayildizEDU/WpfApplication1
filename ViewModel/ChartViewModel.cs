@@ -8,6 +8,11 @@ using System.Collections.ObjectModel;
 using System.Windows.Input;
 using System.Windows;
 
+/*
+References: 
+1.) https://www.tutorialspoint.com/mvvm/mvvm_view_viewmodel_communication.htm
+*/
+
 namespace WpfApplication1.ViewModel{
 
   public class ChartViewModel{
@@ -16,27 +21,15 @@ namespace WpfApplication1.ViewModel{
 
 
     // Command handler
-    private ICommand m_ButtonCommand;
-    public ICommand ButtonCommand {
-      get {
-        return m_ButtonCommand;
-      }
-      set {
-        m_ButtonCommand = value;
-      }
-    }
+    public MyICommand ToggleCommand { get; set; }
+
 
     public ChartViewModel() {
-      ButtonCommand = new ClickCommand(new Action<object>(OnClick));
+      ToggleCommand = new MyICommand(OnToggle);
     }
 
-    public void OnClick(object obj) {
-      //MessageBox.Show(obj.ToString());
-      string short_name = obj.ToString();
-      SelectedNotes.Add(new SelectedNote { ShortName = short_name });
-
-
-
+    public void OnToggle(object obj) {
+      SelectedNotes.Add(new SelectedNote { ShortName = obj.ToString() });
     }
 
 
