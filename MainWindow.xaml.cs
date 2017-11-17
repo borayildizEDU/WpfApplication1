@@ -29,7 +29,6 @@ namespace WpfApplication1
     private void ChartViewControl_Loaded(object sender, RoutedEventArgs e) {
       WpfApplication1.ViewModel.ChartViewModel chartViewModelObject =
          new WpfApplication1.ViewModel.ChartViewModel();
-      chartViewModelObject.LoadChart();
 
       ChartViewControl.DataContext = chartViewModelObject;
     }

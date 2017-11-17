@@ -11,10 +11,8 @@ using System.Windows;
 namespace WpfApplication1.ViewModel{
 
   public class ChartViewModel{
-    ChartModel ChartModel = new ChartModel();
-
     // Update handler
-    public ObservableCollection<ChartModel> Chart { get; set; }
+    ObservableCollection<SelectedNote> SelectedNotes = new ObservableCollection<SelectedNote>();
 
 
     // Command handler
@@ -32,14 +30,11 @@ namespace WpfApplication1.ViewModel{
       ButtonCommand = new ClickCommand(new Action<object>(OnClick));
     }
 
-    public void LoadChart() {
-
-    }
-
-
     public void OnClick(object obj) {
       //MessageBox.Show(obj.ToString());
-      ChartModel.Note += obj.ToString();
+      string short_name = obj.ToString();
+      SelectedNotes.Add(new SelectedNote { ShortName = short_name });
+
 
 
     }

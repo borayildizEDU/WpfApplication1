@@ -7,10 +7,10 @@ using System.ComponentModel;
 
 namespace WpfApplication1.Model{
 
-  
+  public class ChartModel { }
 
-  public class ChartModel : INotifyPropertyChanged {
-    private string m_Note;
+  public class SelectedNote : INotifyPropertyChanged {
+    private string m_ShortName;
 
     #region INotifyPropertyChanged Members
 
@@ -25,13 +25,13 @@ namespace WpfApplication1.Model{
     #endregion
 
 
-    public string Note {
-      get { return m_Note; }
+    public string ShortName {
+      get { return m_ShortName; }
 
       set {
-        if (m_Note != value) {
-          m_Note = value;
-          OnPropertyChanged("Note");
+        if (m_ShortName != value) {
+          m_ShortName = value;
+          OnPropertyChanged("ShortName");
         }
       }
     }
