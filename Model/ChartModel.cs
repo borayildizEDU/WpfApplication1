@@ -9,23 +9,8 @@ using System.Collections.ObjectModel;
 namespace WpfApplication1.Model{
 
   public class ChartModel : INotifyPropertyChanged {
-    private string selectedNotesText;
-    private bool[] selectedNotes = new bool[12];
-
-    public string SelectedNotesText {
-      get { return selectedNotesText; }
-      set {
-        selectedNotesText = value;
-        RaisePropertyChanged("SelectedNotesText");
-      }
-    }
-
-    public bool[] SelectedNotes {
-      get { return selectedNotes; }
-      set {
-        selectedNotes = value;
-      }
-    } 
+    private bool note_E;
+    public bool Note_E { get { return note_E; } set { note_E = value; RaisePropertyChanged("Note_E"); } } 
 
     public event PropertyChangedEventHandler PropertyChanged;
 
@@ -36,9 +21,7 @@ namespace WpfApplication1.Model{
     }
 
     public void ToggleNote(string str) {
-      SelectedNotesText += str;
-      SelectedNotes[0] = true;
-      RaisePropertyChanged("SelectedNotes");
+      note_E = true;
     }
 
   }
