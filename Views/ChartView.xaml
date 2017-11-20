@@ -103,7 +103,7 @@
             <ToggleButton x:Name="button_Copy73" Command ="{Binding ToggleCommand}" CommandParameter="6:1" Content="Button" Canvas.Left="1713" Canvas.Top="196"/>
             <ToggleButton x:Name="button_Copy74" Command ="{Binding ToggleCommand}" CommandParameter="6:1" Content="Button" Canvas.Left="1713" Canvas.Top="134"/>
             <ToggleButton x:Name="button_Copy75" Command ="{Binding ToggleCommand}" CommandParameter="6:1" Content="Button" Canvas.Left="1713" Canvas.Top="78"/>
-            <ToggleButton x:Name="button_Copy76" Command ="{Binding ToggleCommand}" CommandParameter="6:1" Content="Button" Canvas.Left="1713" Canvas.Top="14"/>
+            <ToggleButton x:Name="button_Copy76" Command ="{Binding ToggleCommand}" CommandParameter="6:1" Content="{Binding Chart.SelectedNotes[0], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Canvas.Left="1713" Canvas.Top="14"/>
         </Canvas>
         <Label x:Name="label" Content="{Binding Chart.SelectedNotesText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="70,346,0,0" VerticalAlignment="Top"/>
 

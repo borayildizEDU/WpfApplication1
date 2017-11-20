@@ -23,27 +23,16 @@ namespace WpfApplication1.ViewModel{
       get { return chart;}
       set { chart = value; }
     }
-
     
     public ChartViewModel() {
       chart = new ChartModel();
       ToggleCommand = new MyICommand(OnToggle);
     }
 
-
     public MyICommand ToggleCommand { get; set; }
 
     public void OnToggle(object obj) {
       Chart.ToggleNote(obj.ToString());
     }
-
-
-
-
   }
-
-
-
-
-
 }

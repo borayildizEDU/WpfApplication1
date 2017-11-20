@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using System.Collections.ObjectModel;
 
 namespace WpfApplication1.Model{
 
   public class ChartModel : INotifyPropertyChanged {
     private string selectedNotesText;
+    private bool[] selectedNotes = new bool[12];
 
     public string SelectedNotesText {
       get { return selectedNotesText; }
@@ -17,6 +19,13 @@ namespace WpfApplication1.Model{
         RaisePropertyChanged("SelectedNotesText");
       }
     }
+
+    public bool[] SelectedNotes {
+      get { return selectedNotes; }
+      set {
+        selectedNotes = value;
+      }
+    } 
 
     public event PropertyChangedEventHandler PropertyChanged;
 
@@ -28,6 +37,8 @@ namespace WpfApplication1.Model{
 
     public void ToggleNote(string str) {
       SelectedNotesText += str;
+      SelectedNotes[0] = true;
+      RaisePropertyChanged("SelectedNotes");
     }
 
   }
