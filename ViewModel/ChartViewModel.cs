@@ -7,6 +7,7 @@ using WpfApplication1.Model;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using System.Windows;
+using System.ComponentModel;
 
 /*
 References: 
@@ -16,20 +17,24 @@ References:
 namespace WpfApplication1.ViewModel{
 
   public class ChartViewModel{
-    // Update handler
-    ObservableCollection<SelectedNote> SelectedNotes = new ObservableCollection<SelectedNote>();
+    private ChartModel chart;
 
+    public ChartModel Chart {
+      get { return chart;}
+      set { chart = value; }
+    }
 
-    // Command handler
-    public MyICommand ToggleCommand { get; set; }
-
-
+    
     public ChartViewModel() {
+      chart = new ChartModel();
       ToggleCommand = new MyICommand(OnToggle);
     }
 
+
+    public MyICommand ToggleCommand { get; set; }
+
     public void OnToggle(object obj) {
-      SelectedNotes.Add(new SelectedNote { ShortName = obj.ToString() });
+      Chart.ToggleNote(obj.ToString());
     }
 
 

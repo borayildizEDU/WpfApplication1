@@ -7,34 +7,30 @@ using System.ComponentModel;
 
 namespace WpfApplication1.Model{
 
-  public class ChartModel { }
+  public class ChartModel : INotifyPropertyChanged {
+    private string selectedNotesText;
 
-  public class SelectedNote : INotifyPropertyChanged {
-    private string shortName;
-
-    #region INotifyPropertyChanged Members
+    public string SelectedNotesText {
+      get { return selectedNotesText; }
+      set {
+        selectedNotesText = value;
+        RaisePropertyChanged("SelectedNotesText");
+      }
+    }
 
     public event PropertyChangedEventHandler PropertyChanged;
 
-    private void RaisePropertyChanged(string propertyName) {
+    private void RaisePropertyChanged(string property) {
       if (PropertyChanged != null) {
-        PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+        PropertyChanged(this, new PropertyChangedEventArgs(property));
       }
     }
 
-    #endregion
-
-
-    public string ShortName {
-      get { return shortName; }
-
-      set {
-        if (shortName != value) {
-          shortName = value;
-          RaisePropertyChanged("ShortName");
-        }
-      }
+    public void ToggleNote(string str) {
+      SelectedNotesText += str;
     }
 
   }
+
+
 }
