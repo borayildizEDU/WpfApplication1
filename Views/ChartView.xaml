@@ -26,12 +26,12 @@
             </Canvas.Resources>
 
             <Image x:Name="image" Height="367" Canvas.Left="10" Width="1800" Source="../Resources/table.png" Canvas.Top="2"/>
-            <ToggleButton x:Name="btn0" CommandParameter="E:6:0" Content="E" IsChecked="{Binding Chart.Note_E}" Canvas.Left="25" Canvas.Top="318" />
-            <ToggleButton x:Name="btn1" CommandParameter="A:5:0" Content="A" IsChecked="{Binding Chart.Note_E}" Canvas.Left="25" Canvas.Top="256" />
-            <ToggleButton x:Name="btn2" CommandParameter="D:4:0" Content="D" IsChecked="{Binding Chart.Note_E}" Canvas.Left="25" Canvas.Top="196" />
-            <ToggleButton x:Name="btn3" CommandParameter="G:3:0" Content="G" IsChecked="{Binding Chart.Note_E}" Canvas.Left="25" Canvas.Top="134" />
-            <ToggleButton x:Name="btn4" CommandParameter="B:2:0" Content="B" IsChecked="{Binding Chart.Note_E}" Canvas.Left="25" Canvas.Top="78" />
-            <ToggleButton x:Name="btn5" CommandParameter="E:1:0" Content="E" IsChecked="{Binding Chart.Note_E}" Canvas.Left="25" Canvas.Top="14"/>
+            <ToggleButton x:Name="btn0" CommandParameter="E:6:0" Content="E" IsChecked="{Binding Chart.Note_A.Enable}" Canvas.Left="25" Canvas.Top="318" />
+            <ToggleButton x:Name="btn1" CommandParameter="A:5:0" Content="A" IsChecked="{Binding Chart.Note_A.Enable}" Canvas.Left="25" Canvas.Top="256" />
+            <ToggleButton x:Name="btn2" CommandParameter="D:4:0" Content="D" IsChecked="{Binding Chart.Note_A.Enable}" Canvas.Left="25" Canvas.Top="196" />
+            <ToggleButton x:Name="btn3" CommandParameter="G:3:0" Content="G" IsChecked="{Binding Chart.Note_A.Enable}" Canvas.Left="25" Canvas.Top="134" />
+            <ToggleButton x:Name="btn4" CommandParameter="B:2:0" Content="B" IsChecked="{Binding Chart.Note_A.Enable}" Canvas.Left="25" Canvas.Top="78" />
+            <ToggleButton x:Name="btn5" CommandParameter="E:1:0" Content="E" IsChecked="{Binding Chart.Note_A.Enable}" Canvas.Left="25" Canvas.Top="14"/>
         </Canvas>
 
     </Grid>
