@@ -5,8 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApplication1"
         xmlns:views = "clr-namespace:WpfApplication1.Views"
+        xmlns:converter="clr-namespace:WpfApplication1" 
         mc:Ignorable="d"
         Title="MainWindow" Height="1141" Width="2000" WindowState="Maximized">
+
+    <Window.Resources>
+        <converter:MultiDimensionalConverter x:Key="MultiDimensionalConverter"></converter:MultiDimensionalConverter>
+    </Window.Resources>
 
 
     <Grid>

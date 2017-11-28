@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace WpfApplication1.Views {
+
   /// <summary>
   /// Interaction logic for ChartView.xaml
   /// </summary>
