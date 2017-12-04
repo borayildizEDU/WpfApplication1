@@ -9,11 +9,6 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="1141" Width="2000" WindowState="Maximized">
 
-    <Window.Resources>
-        <converter:MultiDimensionalConverter x:Key="MultiDimensionalConverter"></converter:MultiDimensionalConverter>
-    </Window.Resources>
-
-
     <Grid>
         <views:ChartView x:Name = "ChartViewControl" Loaded = "ChartViewControl_Loaded"/>
     </Grid>

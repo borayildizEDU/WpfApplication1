@@ -4,12 +4,14 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfApplication1.Views"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
              d:DesignHeight="377" d:DesignWidth="1820">
     
     <Grid>
         <Canvas HorizontalAlignment="Left" Height="377" Margin="0,0,0,0" VerticalAlignment="Top" Width="1820">
             <Canvas.Resources>
+                <local:MultiDimensionalConverter x:Key="MultiDimensionalConverter"></local:MultiDimensionalConverter>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Command" Value="{Binding ToggleCommand}" />
                     <Setter Property="Width" Value="40" />
@@ -18,12 +20,27 @@
             </Canvas.Resources>
 
             <Image x:Name="image" Height="367" Canvas.Left="10" Width="1800" Source="../Resources/table.png" Canvas.Top="2"/>
-            <Button x:Name="btn0" CommandParameter="4:6:0" Content="E" Opacity = "{Binding Chart.Notes[4]}" Canvas.Left="25" Canvas.Top="318" />
-            <Button x:Name="btn1" CommandParameter="9:5:0" Content="A" Opacity = "{Binding Chart.Notes[9]}" Canvas.Left="25" Canvas.Top="256" />
-            <Button x:Name="btn2" CommandParameter="2:4:0" Content="D" Opacity = "{Binding Chart.Notes[2]}" Canvas.Left="25" Canvas.Top="196" />
-            <Button x:Name="btn3" CommandParameter="7:3:0" Content="G" Opacity = "{Binding Chart.Notes[7]}" Canvas.Left="25" Canvas.Top="134" />
-            <Button x:Name="btn4" CommandParameter="11:2:0" Content="B" Opacity = "{Binding Chart.Notes[11]}" Canvas.Left="25" Canvas.Top="78" />
-            <Button x:Name="btn5" CommandParameter="4:1:0" Content="E"  Opacity = "{Binding Chart.Notes[4]}" Canvas.Left="25" Canvas.Top="14"/>
+            <Button CommandParameter="4:6:0" Content="E" Canvas.Left="25" Canvas.Top="318">
+                <Button.Resources>
+                    <sys:Int32 x:Key="row">6</sys:Int32>
+                    <sys:Int32 x:Key="col">0</sys:Int32>
+                </Button.Resources>
+                <Button.Opacity>
+                    <MultiBinding Converter="{StaticResource MultiDimensionalConverter}">
+                        <Binding Path="Chart.Notes[4]"/>
+                        <Binding Source="{StaticResource row}" />
+                        <Binding Source="{StaticResource col}" />
+                    </MultiBinding>
+                </Button.Opacity>
+            </Button>
+
+
+
+            <Button x:Name="btn1" CommandParameter="9:5:0" Content="A" Opacity="{Binding Chart.Notes[9]}" Canvas.Left="25" Canvas.Top="256" />
+            <Button x:Name="btn2" CommandParameter="2:4:0" Content="D" Opacity="{Binding Chart.Notes[2]}" Canvas.Left="25" Canvas.Top="196" />
+            <Button x:Name="btn3" CommandParameter="7:3:0" Content="G" Opacity="{Binding Chart.Notes[7]}" Canvas.Left="25" Canvas.Top="134" />
+            <Button x:Name="btn4" CommandParameter="11:2:0" Content="B" Opacity="{Binding Chart.Notes[11]}" Canvas.Left="25" Canvas.Top="78" />
+            <Button x:Name="btn5" CommandParameter="4:1:0" Content="E"  Opacity="{Binding Chart.Notes[4]}" Canvas.Left="25" Canvas.Top="14"/>
         </Canvas>
 
     </Grid>

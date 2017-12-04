@@ -23,8 +23,6 @@ namespace WpfApplication1.Model {
 
     #region Constants
     public const int NOTE_COUNT = 12;
-    public const int ROW_COUNT = 256;
-    public const int COL_COUNT = 256;
     #endregion
 
 
@@ -41,9 +39,11 @@ namespace WpfApplication1.Model {
 
       if (!Notes[id]) {
         Notes[id] = true;
+        WpfApplication1.Views.MultiDimensionalConverter.enable[row, col] = true;
       }
       else {
         Notes[id] = false;
+        WpfApplication1.Views.MultiDimensionalConverter.enable[row, col] = false;
       }
       RaisePropertyChanged("Notes");
 

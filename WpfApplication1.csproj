@@ -55,7 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="MultiDimensionalConverter.cs" />
+    <Compile Include="Views\MultiDimensionalConverter.cs" />
     <Compile Include="MyICommand.cs" />
     <Compile Include="ViewModel\ChartViewModel.cs" />
     <Compile Include="Views\ChartView.xaml.cs">
