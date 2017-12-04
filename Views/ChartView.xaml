@@ -12,27 +12,18 @@
             <Canvas.Resources>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Command" Value="{Binding ToggleCommand}" />
-                    <Setter Property="Opacity" Value="0.2" />
                     <Setter Property="Width" Value="40" />
                     <Setter Property="Height" Value="40" />
-                    <Style.Triggers>
-                        <Trigger Property="Tag" Value="True">
-                            <Setter Property="Opacity" Value="1" />
-                        </Trigger>
-                        <Trigger Property="Tag" Value="False">
-                            <Setter Property="Opacity" Value="0.2" />
-                        </Trigger>
-                    </Style.Triggers>
                 </Style>
             </Canvas.Resources>
 
             <Image x:Name="image" Height="367" Canvas.Left="10" Width="1800" Source="../Resources/table.png" Canvas.Top="2"/>
-            <Button x:Name="btn0" CommandParameter="4:6:0" Content="E" Tag="{Binding Chart.Notes[4][6][0]}" Canvas.Left="25" Canvas.Top="318" />
-            <Button x:Name="btn1" CommandParameter="9:5:0" Content="A" Tag="{Binding Chart.Notes[9][5][0]}" Canvas.Left="25" Canvas.Top="256" />
-            <Button x:Name="btn2" CommandParameter="2:4:0" Content="D" Tag="{Binding Chart.Notes[2][4][0]}" Canvas.Left="25" Canvas.Top="196" />
-            <Button x:Name="btn3" CommandParameter="7:3:0" Content="G" Tag="{Binding Chart.Notes[7][3][0]}" Canvas.Left="25" Canvas.Top="134" />
-            <Button x:Name="btn4" CommandParameter="11:2:0" Content="B" Tag="{Binding Chart.Notes[11][2][0]}" Canvas.Left="25" Canvas.Top="78" />
-            <Button x:Name="btn5" CommandParameter="4:1:0" Content="E" Tag="{Binding Chart.Notes[4][1][0]}" Canvas.Left="25" Canvas.Top="14"/>
+            <Button x:Name="btn0" CommandParameter="4:6:0" Content="E" Opacity = "{Binding Chart.Notes[4]}" Canvas.Left="25" Canvas.Top="318" />
+            <Button x:Name="btn1" CommandParameter="9:5:0" Content="A" Opacity = "{Binding Chart.Notes[9]}" Canvas.Left="25" Canvas.Top="256" />
+            <Button x:Name="btn2" CommandParameter="2:4:0" Content="D" Opacity = "{Binding Chart.Notes[2]}" Canvas.Left="25" Canvas.Top="196" />
+            <Button x:Name="btn3" CommandParameter="7:3:0" Content="G" Opacity = "{Binding Chart.Notes[7]}" Canvas.Left="25" Canvas.Top="134" />
+            <Button x:Name="btn4" CommandParameter="11:2:0" Content="B" Opacity = "{Binding Chart.Notes[11]}" Canvas.Left="25" Canvas.Top="78" />
+            <Button x:Name="btn5" CommandParameter="4:1:0" Content="E"  Opacity = "{Binding Chart.Notes[4]}" Canvas.Left="25" Canvas.Top="14"/>
         </Canvas>
 
     </Grid>
