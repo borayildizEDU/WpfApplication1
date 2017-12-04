@@ -27,7 +27,7 @@ namespace WpfApplication1.Model {
 
 
     private bool[] notes = new bool [NOTE_COUNT];
-    public bool[] Notes { get { return notes; } set {notes = value; } } 
+    public bool[] Notes { get { return notes; } set {notes = value;} } 
 
 
 
