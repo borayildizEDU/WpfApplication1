@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Windows.Data;
 using System.Globalization;
 using System.Windows.Controls;
+using System.Windows.Media;
+
 
 namespace WpfApplication1.Views {
   /*
@@ -30,6 +32,28 @@ namespace WpfApplication1.Views {
       }
       else {
         return OPACITY_OFF;
+      }
+    }
+
+    public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture) {
+      throw new NotImplementedException();
+    }
+  }
+
+
+  public class ColorConverter : IMultiValueConverter {
+
+    public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture) {
+      int rootID = (int)values[0];
+      Button btn = (Button)values[1];
+      string btnCmd = btn.CommandParameter.ToString();
+      int noteID = System.Convert.ToInt32(btnCmd.Split(':')[0]);
+
+      if (noteID == rootID) {
+        return Brushes.Red; 
+      }
+      else {
+        return Brushes.Gray;
       }
     }
 

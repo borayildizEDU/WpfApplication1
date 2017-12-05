@@ -27,14 +27,21 @@ namespace WpfApplication1.Model {
     public const int COL_COUNT = 256;
     #endregion
 
+    private int activeNoteCount;
+    private int _rootNoteID;
+    public int RootNoteID { get { return _rootNoteID; } set { _rootNoteID = value; RaisePropertyChanged("RootNoteID"); } }
+
     public static bool[,] EnableChart = new bool[ROW_COUNT, COL_COUNT];
     public static bool[] Notes = new bool[NOTE_COUNT];
+
     private bool _updateChart;
-    ObservableCollection<int> _rows = new ObservableCollection<int>();
-    ObservableCollection<int> _cols = new ObservableCollection<int>();
+    private ObservableCollection<int> _rows = new ObservableCollection<int>();
+    private ObservableCollection<int> _cols = new ObservableCollection<int>();
+    private int _selectedRowStart, _selectedRowEnd, _selectedColStart, _selectedColEnd;
+
+
     public ObservableCollection<int> Rows { get { return _rows; } set { _rows = value; RaisePropertyChanged("Rows"); } }
     public ObservableCollection<int> Cols { get { return _cols; } set { _cols = value; RaisePropertyChanged("Cols"); } }
-    private int _selectedRowStart, _selectedRowEnd, _selectedColStart, _selectedColEnd;
 
     public bool UpdateChart {
       get {
@@ -46,13 +53,12 @@ namespace WpfApplication1.Model {
       }
     }
 
-
     public int SelectedRowStart {
       get {
         return _selectedRowStart;
       } set {
         _selectedRowStart = value;
-        SetEnableChart(_selectedRowStart, _selectedRowEnd, _selectedColStart, _selectedColEnd);
+        SetDisplayRange(_selectedRowStart, _selectedRowEnd, _selectedColStart, _selectedColEnd);
       }
     }
 
@@ -62,7 +68,7 @@ namespace WpfApplication1.Model {
       }
       set {
         _selectedRowEnd = value;
-        SetEnableChart(_selectedRowStart, _selectedRowEnd, _selectedColStart, _selectedColEnd);
+        SetDisplayRange(_selectedRowStart, _selectedRowEnd, _selectedColStart, _selectedColEnd);
       }
     }
 
@@ -72,7 +78,7 @@ namespace WpfApplication1.Model {
       }
       set {
         _selectedColStart = value;
-        SetEnableChart(_selectedRowStart, _selectedRowEnd, _selectedColStart, _selectedColEnd);
+        SetDisplayRange(_selectedRowStart, _selectedRowEnd, _selectedColStart, _selectedColEnd);
       }
     }
 
@@ -82,10 +88,9 @@ namespace WpfApplication1.Model {
       }
       set {
         _selectedColEnd = value;
-        SetEnableChart(_selectedRowStart, _selectedRowEnd, _selectedColStart, _selectedColEnd);
+        SetDisplayRange(_selectedRowStart, _selectedRowEnd, _selectedColStart, _selectedColEnd);
       }
     }
-
 
 
     public ChartModel(){
@@ -96,8 +101,8 @@ namespace WpfApplication1.Model {
       for (int i = 0; i < COL_COUNT; i++) {
         _cols.Add(i);
       }
-
     }
+
 
     public void ToggleNote(string str) {
       int id = Convert.ToInt32(str.Split(':')[0]);      // zero based id
@@ -105,18 +110,19 @@ namespace WpfApplication1.Model {
       int col = Convert.ToInt32(str.Split(':')[2]);     // zero based col(e.g guitar fret)
 
       if (!Notes[id]) {
+        if (activeNoteCount == 0) RootNoteID = id;
         Notes[id] = true;
-        //EnableChart[row, col] = true;
+        activeNoteCount++;
       }
       else {
         Notes[id] = false;
-        //EnableChart[row, col] = false;
+        activeNoteCount--;
       }
       UpdateChart = !UpdateChart;
     }
 
 
-    public void SetEnableChart(int startRow, int endRow, int startCol, int endCol) {
+    public void SetDisplayRange(int startRow, int endRow, int startCol, int endCol) {
       for(int i = 0; i < ROW_COUNT; i++) {
         for(int j = 0; j < COL_COUNT; j++) {
           EnableChart[i, j] = (i >= startRow && i <= endRow && j >= startCol && j <= endCol) ? true : false;
@@ -124,6 +130,10 @@ namespace WpfApplication1.Model {
       }
       UpdateChart = !UpdateChart;
     }
+
+    // Save Scale
+
+    // Load Scale
 
   }
 
