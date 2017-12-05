@@ -33,7 +33,7 @@ namespace WpfApplication1
     }
 
     private void ChartControlViewControl_Loaded(object sender, RoutedEventArgs e) {
-      ChartViewControl.DataContext = chartViewModelObject;
+      ChartControlViewControl.DataContext = chartViewModelObject;
     }
   }
 
