@@ -19,34 +19,21 @@
                     <Setter Property="Command" Value="{Binding ToggleCommand}" />
                     <Setter Property="Width" Value="40" />
                     <Setter Property="Height" Value="40" />
+                    <Setter Property="Opacity" >
+                        <Setter.Value>
+                            <MultiBinding Converter="{StaticResource MultiDimensionalConverter}" >
+                                <Binding Path="Chart.ToggleNote" />
+                                <Binding RelativeSource="{RelativeSource Self}"/>
+                            </MultiBinding>
+                        </Setter.Value>
+                    </Setter>
                 </Style>
             </Canvas.Resources>
 
             <Image x:Name="image" Height="367" Canvas.Left="10" Width="1800" Source="../Resources/table.png" Canvas.Top="2"/>
-            <Button CommandParameter="4:6:0" Content="E" Canvas.Left="25" Canvas.Top="318">
-                <Button.Opacity>
-                    <MultiBinding Converter="{StaticResource MultiDimensionalConverter}">
-                        <Binding Path="Chart.Notes[4]"/>
-                        <Binding RelativeSource="{RelativeSource Self}"/>
-                    </MultiBinding>
-                </Button.Opacity>
-            </Button>
-            <Button CommandParameter="9:5:0" Content="A" Canvas.Left="25" Canvas.Top="255">
-                <Button.Opacity>
-                    <MultiBinding Converter="{StaticResource MultiDimensionalConverter}">
-                        <Binding Path="Chart.Notes[9]"/>
-                        <Binding RelativeSource="{RelativeSource Self}"/>
-                    </MultiBinding>
-                </Button.Opacity>
-            </Button>
-            <Button CommandParameter="2:4:0" Content="D" Canvas.Left="25" Canvas.Top="196">
-                <Button.Opacity>
-                    <MultiBinding Converter="{StaticResource MultiDimensionalConverter}">
-                        <Binding Path="Chart.Notes[2]"/>
-                        <Binding RelativeSource="{RelativeSource Self}"/>
-                    </MultiBinding>
-                </Button.Opacity>
-            </Button>
+            <Button CommandParameter="4:6:0" Content="E" Canvas.Left="25" Canvas.Top="318"/>
+            <Button CommandParameter="9:5:0" Content="A" Canvas.Left="25" Canvas.Top="255"/>
+            <Button CommandParameter="2:4:0" Content="D" Canvas.Left="25" Canvas.Top="196"/>
         </Canvas>
 
     </Grid>

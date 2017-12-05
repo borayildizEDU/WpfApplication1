@@ -13,24 +13,23 @@ namespace WpfApplication1.Views {
   */
   public class MultiDimensionalConverter : IMultiValueConverter {
     #region Constants
-    public const int ROW_COUNT = 256;
-    public const int COL_COUNT = 256;
+    public const double OPACITY_ON = 1.0;
+    public const double OPACITY_OFF = 0.2;
     #endregion
 
-    static public bool[,] enable = new bool[ROW_COUNT, COL_COUNT];
 
     public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture) {
-      bool note = (bool)values[0];
       Button btn = (Button)values[1];
-      string command = btn.CommandParameter.ToString();
-      int row = System.Convert.ToInt32(command.Split(':')[1]);
-      int col = System.Convert.ToInt32(command.Split(':')[2]);
+      string btnCmd = btn.CommandParameter.ToString();
+      int noteID = System.Convert.ToInt32(btnCmd.Split(':')[0]);
+      int row = System.Convert.ToInt32(btnCmd.Split(':')[1]);
+      int col = System.Convert.ToInt32(btnCmd.Split(':')[2]);
 
-      if ((bool)values[0] && enable[row, col]) {
-        return 1;
+      if (WpfApplication1.Model.ChartModel.Notes[noteID] && WpfApplication1.Model.ChartModel.EnableChart[row, col]) {
+        return OPACITY_ON;
       }
       else {
-        return 0.2;
+        return OPACITY_OFF;
       }
     }
 
