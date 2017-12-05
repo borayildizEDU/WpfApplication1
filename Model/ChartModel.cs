@@ -29,11 +29,11 @@ namespace WpfApplication1.Model {
 
     public static bool[,] EnableChart = new bool[ROW_COUNT, COL_COUNT];
     public static bool[] Notes = new bool[NOTE_COUNT];
-    private int _toggleNote;
-    public int ToggleNote { get { return _toggleNote; } set { _toggleNote = value; RaisePropertyChanged("ToggleNote"); } }
+    private bool _updateChart;
+    public bool UpdateChart { get { return _updateChart; } set { _updateChart = value; RaisePropertyChanged("UpdateChart"); } }
 
 
-    public void Toggle_Note(string str) {
+    public void ToggleNote(string str) {
       int id = Convert.ToInt32(str.Split(':')[0]);      // zero based id
       int row = Convert.ToInt32(str.Split(':')[1]);     // one based row(e.g guitar string)
       int col = Convert.ToInt32(str.Split(':')[2]);     // zero based col(e.g guitar fret)
@@ -46,8 +46,19 @@ namespace WpfApplication1.Model {
         Notes[id] = false;
         EnableChart[row, col] = false;
       }
-      ToggleNote = id;
+      UpdateChart = true;
     }
+
+
+    public void SetEnableChart(int startRow, int endRow, int startCol, int endCol) {
+      for(int i = 0; i < ROW_COUNT; i++) {
+        for(int j = 0; j < COL_COUNT; j++) {
+          EnableChart[i, j] = (startRow >= i && endRow <= i && startCol >= j && endCol <= j) ? true : false;
+        }
+      }
+      UpdateChart = true;
+    }
+
   }
 
 

@@ -33,7 +33,7 @@ namespace WpfApplication1.ViewModel{
     public MyICommand ToggleCommand { get; set; }
 
     public void OnToggle(object obj) {
-      Chart.Toggle_Note(obj.ToString());
+      Chart.ToggleNote(obj.ToString());
     }
   }
 }

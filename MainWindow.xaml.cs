@@ -21,16 +21,18 @@ namespace WpfApplication1
   /// </summary>
   public partial class MainWindow : Window
     {
+        WpfApplication1.ViewModel.ChartViewModel chartViewModelObject = new WpfApplication1.ViewModel.ChartViewModel();
+
         public MainWindow()
         {
-            InitializeComponent();
-
+          InitializeComponent();           
         }
 
     private void ChartViewControl_Loaded(object sender, RoutedEventArgs e) {
-      WpfApplication1.ViewModel.ChartViewModel chartViewModelObject =
-         new WpfApplication1.ViewModel.ChartViewModel();
+      ChartViewControl.DataContext = chartViewModelObject;
+    }
 
+    private void ChartControlViewControl_Loaded(object sender, RoutedEventArgs e) {
       ChartViewControl.DataContext = chartViewModelObject;
     }
   }

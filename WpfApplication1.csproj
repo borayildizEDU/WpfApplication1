@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Views\ChartControlView.xaml.cs">
+      <DependentUpon>ChartControlView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MultiDimensionalConverter.cs" />
     <Compile Include="MyICommand.cs" />
     <Compile Include="ViewModel\ChartViewModel.cs" />
@@ -73,6 +76,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\ChartControlView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ChartView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
