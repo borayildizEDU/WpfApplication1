@@ -23,8 +23,8 @@ namespace WpfApplication1.Model {
 
     #region Constants
     public const int NOTE_COUNT = 12;
-    public const int ROW_COUNT = 256;
-    public const int COL_COUNT = 256;
+    public const int ROW_COUNT = 7;   // eg. string
+    public const int COL_COUNT = 13;  // eg. fret
     #endregion
 
     private int activeNoteCount;
@@ -108,15 +108,29 @@ namespace WpfApplication1.Model {
       int id = Convert.ToInt32(str.Split(':')[0]);      // zero based id
       int row = Convert.ToInt32(str.Split(':')[1]);     // one based row(e.g guitar string)
       int col = Convert.ToInt32(str.Split(':')[2]);     // zero based col(e.g guitar fret)
+      int nextID;
 
       if (!Notes[id]) {
-        if (activeNoteCount == 0) RootNoteID = id;
+        if (activeNoteCount == 0) RootNoteID = id;      // assign root
         Notes[id] = true;
         activeNoteCount++;
       }
       else {
         Notes[id] = false;
         activeNoteCount--;
+
+        // Reassign root
+        if(id == RootNoteID) {
+          for(int i = 1; i < NOTE_COUNT; i++) {
+            nextID = (id + i + NOTE_COUNT) % NOTE_COUNT;
+            if (Notes[nextID] == true) {
+              RootNoteID = nextID;
+              break;
+            }
+
+          }
+        }
+
       }
       UpdateChart = !UpdateChart;
     }
@@ -131,7 +145,18 @@ namespace WpfApplication1.Model {
       UpdateChart = !UpdateChart;
     }
 
-    // Save Scale
+
+    public void SaveScale() {
+      int id;
+      string strScale;
+
+      for (int i = RootNoteID; i < NOTE_COUNT; i++) {
+        id = (RootNoteID + i + NOTE_COUNT) % NOTE_COUNT;
+        if (Notes[id] == true) {
+          strScale = id + ":";
+        }
+      }
+    }
 
     // Load Scale
 
