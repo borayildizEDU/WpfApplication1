@@ -10,24 +10,15 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace WpfApplication1.Views {
   /// <summary>
-  /// Interaction logic for ChartControlView.xaml
+  /// Interaction logic for SaveScaleDialog.xaml
   /// </summary>
-  public partial class ChartControlView : UserControl {
-    public ChartControlView() {
+  public partial class SaveScaleDialog : Window {
+    public SaveScaleDialog() {
       InitializeComponent();
-      DataContext = new ViewModel.ChartViewModel();
-    }
-
-    private void btn1_Click(object sender, RoutedEventArgs e) {
-      SaveScaleDialog dlg = new SaveScaleDialog();
-
-      dlg.Show();
-
     }
   }
 }
