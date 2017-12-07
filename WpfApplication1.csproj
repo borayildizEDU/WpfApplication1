@@ -64,9 +64,6 @@
     <Compile Include="Views\ChartView.xaml.cs">
       <DependentUpon>ChartView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\SaveScaleDialog.xaml.cs">
-      <DependentUpon>SaveScaleDialog.xaml</DependentUpon>
-    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -84,10 +81,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ChartView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\SaveScaleDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -22,12 +22,5 @@ namespace WpfApplication1.Views {
       InitializeComponent();
       DataContext = new ViewModel.ChartViewModel();
     }
-
-    private void btn1_Click(object sender, RoutedEventArgs e) {
-      SaveScaleDialog dlg = new SaveScaleDialog();
-
-      dlg.Show();
-
-    }
   }
 }

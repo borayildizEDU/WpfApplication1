@@ -11,7 +11,6 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -26,6 +25,5 @@
         <ComboBox x:Name="comboBox1" Grid.Column="1" Grid.Row="2" ItemsSource="{Binding Path=Chart.Cols}" SelectedItem="{Binding Path=Chart.SelectedColStart}"/>
         <ComboBox x:Name="comboBox2" Grid.Column="2" Grid.Row="1" ItemsSource="{Binding Path=Chart.Rows}" SelectedItem="{Binding Path=Chart.SelectedRowEnd}"/>
         <ComboBox x:Name="comboBox3" Grid.Column="2" Grid.Row="2" ItemsSource="{Binding Path=Chart.Cols}" SelectedItem="{Binding Path=Chart.SelectedColEnd}"/>
-        <Button x:Name="btn1" Grid.Column="0" Grid.Row="3" Content="Save Scale" Click="btn1_Click"/>
     </Grid>
 </UserControl>
