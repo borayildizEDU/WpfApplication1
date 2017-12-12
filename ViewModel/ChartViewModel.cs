@@ -18,15 +18,10 @@ References:
 namespace WpfApplication1.ViewModel{
 
   public class ChartViewModel{
-    private ChartModel _chart;
+    public ChartModel Chart { get; set; }
 
-    public ChartModel Chart {
-      get { return _chart;}
-      set { _chart = value; }
-    }
-    
     public ChartViewModel() {
-      _chart = new ChartModel();
+      Chart = new ChartModel();
       ToggleCommand = new MyICommand(OnToggle);
     }
 
