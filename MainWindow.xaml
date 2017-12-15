@@ -16,8 +16,6 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <views:ChartView x:Name = "ChartViewControl" Loaded = "ChartViewControl_Loaded" Grid.Row="0" Grid.Column="0"/>
-        <views:ChartControlView x:Name = "ChartControlViewControl" Loaded = "ChartControlViewControl_Loaded" Grid.Row="1" Grid.Column="0"/>
         
     </Grid>
 

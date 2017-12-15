@@ -28,12 +28,12 @@ namespace WpfApplication1
           InitializeComponent();           
         }
 
-    private void ChartViewControl_Loaded(object sender, RoutedEventArgs e) {
+    private void ChartView_Loaded(object sender, RoutedEventArgs e) {
       ChartViewControl.DataContext = chartViewModelObject;
     }
 
-    private void ChartControlViewControl_Loaded(object sender, RoutedEventArgs e) {
-      ChartControlViewControl.DataContext = chartViewModelObject;
+    private void SettingsView_Loaded(object sender, RoutedEventArgs e) {
+      SettingsViewControl.DataContext = chartViewModelObject;
     }
   }
 

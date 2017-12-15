@@ -17,8 +17,8 @@ namespace WpfApplication1.Views {
   /// <summary>
   /// Interaction logic for ChartControlView.xaml
   /// </summary>
-  public partial class ChartControlView : UserControl {
-    public ChartControlView() {
+  public partial class SettingsView : UserControl {
+    public SettingsView() {
       InitializeComponent();
       DataContext = new ViewModel.ChartViewModel();
     }
