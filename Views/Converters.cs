@@ -62,4 +62,20 @@ namespace WpfApplication1.Views {
       throw new NotImplementedException();
     }
   }
+
+
+  public class NoteStringConverter : IMultiValueConverter {
+
+    public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture) {
+      int note = (int)values[0];
+      return WpfApplication1.Model.ChartModel.NoteStr[note];
+    }
+
+    public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture) {
+      throw new NotImplementedException();
+    }
+  }
+
+
+
 }

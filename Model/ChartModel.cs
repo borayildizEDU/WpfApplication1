@@ -27,21 +27,41 @@ namespace WpfApplication1.Model {
     public const int COL_COUNT = 13;  // eg. fret
     #endregion
 
+    #region Enums
+    public enum Note {
+      C   = 0,
+      Db  = 1,
+      D   = 2,
+      Eb  = 3,
+      E   = 4,
+      F   = 5,
+      Gb  = 6,
+      G   = 7,
+      Ab  = 8,
+      A   = 9,
+      Bb  = 10,
+      B   = 11
+    }
+    #endregion
+
     private int activeNoteCount;
     private int _rootNoteID;
     public int RootNoteID { get { return _rootNoteID; } set { _rootNoteID = value; RaisePropertyChanged("RootNoteID"); } }
 
     public static bool[,] EnableChart = new bool[ROW_COUNT, COL_COUNT];
     public static bool[] Notes = new bool[NOTE_COUNT];
+    public static string[] NoteStr = { "C", "Db", "D", "Eb", "E", "F", "Gb", "Ab", "A", "Bb", "B"};
 
     private bool _updateChart;
     private ObservableCollection<int> _rows = new ObservableCollection<int>();
     private ObservableCollection<int> _cols = new ObservableCollection<int>();
+    private ObservableCollection<int> _notelist = new ObservableCollection<int>();
     private int _selectedRowStart = 1, _selectedRowEnd = (ROW_COUNT - 1), _selectedColStart = 1, _selectedColEnd = (COL_COUNT - 1);
 
 
     public ObservableCollection<int> Rows { get { return _rows; } set { _rows = value; RaisePropertyChanged("Rows"); } }
     public ObservableCollection<int> Cols { get { return _cols; } set { _cols = value; RaisePropertyChanged("Cols"); } }
+    public ObservableCollection<int> Notelist { get { return _notelist; } set { _notelist = value; RaisePropertyChanged("Notelist"); } }
 
     public bool UpdateChart {
       get {
@@ -102,6 +122,10 @@ namespace WpfApplication1.Model {
         _cols.Add(i);
       }
 
+      for (int i = 0; i < NOTE_COUNT; i++) {
+        _notelist.Add(i);
+      }
+
       SetDisplayRangeAll(true);
     }
 
@@ -156,7 +180,6 @@ namespace WpfApplication1.Model {
         }
       }
     }
-
 
     public void SaveScale() {
       int id;
