@@ -37,7 +37,7 @@ namespace WpfApplication1.Model {
     private bool _updateChart;
     private ObservableCollection<int> _rows = new ObservableCollection<int>();
     private ObservableCollection<int> _cols = new ObservableCollection<int>();
-    private int _selectedRowStart, _selectedRowEnd, _selectedColStart, _selectedColEnd;
+    private int _selectedRowStart = 1, _selectedRowEnd = (ROW_COUNT - 1), _selectedColStart = 1, _selectedColEnd = (COL_COUNT - 1);
 
 
     public ObservableCollection<int> Rows { get { return _rows; } set { _rows = value; RaisePropertyChanged("Rows"); } }
@@ -102,10 +102,6 @@ namespace WpfApplication1.Model {
         _cols.Add(i);
       }
 
-      _selectedRowStart = 1;
-      _selectedColStart = 1;
-      _selectedRowEnd = ROW_COUNT - 1;
-      _selectedColEnd = COL_COUNT - 1;
       SetDisplayRangeAll(true);
     }
 
