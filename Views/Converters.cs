@@ -13,7 +13,8 @@ namespace WpfApplication1.Views {
   /*
   reference: https://stackoverflow.com/questions/16119200/wpf-binding-to-multidimensional-array-in-the-xaml
   */
-  public class MultiDimensionalConverter : IMultiValueConverter {
+
+  public class OpacityConverter : IMultiValueConverter {
     #region Constants
     public const double OPACITY_ON = 1.0;
     public const double OPACITY_OFF = 0.2;

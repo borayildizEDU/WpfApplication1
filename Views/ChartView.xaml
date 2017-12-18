@@ -8,7 +8,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="377" d:DesignWidth="1820">
     <UserControl.Resources>
-        <local:MultiDimensionalConverter x:Key="MultiDimensionalConverter"/>
+        <local:OpacityConverter x:Key="OpacityConverter"/>
         <local:ColorConverter x:Key="ColorConverter"/>
     </UserControl.Resources>
 
@@ -18,15 +18,13 @@
         </Grid.RowDefinitions>
         <Canvas HorizontalAlignment="Left" Height="377" VerticalAlignment="Top" Width="1820" Grid.Row="0" Grid.Column="0">
             <Canvas.Resources>
-                <local:MultiDimensionalConverter x:Key="MultiDimensionalConverter"></local:MultiDimensionalConverter>
-                <local:ColorConverter x:Key="ColorConverter"></local:ColorConverter>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Command" Value="{Binding ToggleCommand}" />
                     <Setter Property="Width" Value="40" />
                     <Setter Property="Height" Value="40" />
                     <Setter Property="Opacity" >
                         <Setter.Value>
-                            <MultiBinding Converter="{StaticResource MultiDimensionalConverter}" >
+                            <MultiBinding Converter="{StaticResource OpacityConverter}" >
                                 <Binding Path="Chart.UpdateChart" />
                                 <Binding RelativeSource="{RelativeSource Self}"/>
                             </MultiBinding>

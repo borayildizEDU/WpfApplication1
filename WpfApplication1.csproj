@@ -58,11 +58,26 @@
     <Compile Include="Views\SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\MultiDimensionalConverter.cs" />
+    <Compile Include="Views\Converters.cs" />
     <Compile Include="MyICommand.cs" />
     <Compile Include="ViewModel\ChartViewModel.cs" />
     <Compile Include="Views\ChartView.xaml.cs">
       <DependentUpon>ChartView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\ChordControl.xaml.cs">
+      <DependentUpon>ChordControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\InstrumentSelect.xaml.cs">
+      <DependentUpon>InstrumentSelect.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\PlayControl.xaml.cs">
+      <DependentUpon>PlayControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\ScaleControl.xaml.cs">
+      <DependentUpon>ScaleControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\ViewMask.xaml.cs">
+      <DependentUpon>ViewMask.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -81,6 +96,26 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ChartView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\ChordControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\InstrumentSelect.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\PlayControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\ScaleControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\ViewMask.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -117,7 +152,9 @@
     <Resource Include="Resources\image00.png" />
     <Resource Include="Resources\table.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\Instruments\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
