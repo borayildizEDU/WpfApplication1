@@ -4,43 +4,28 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfApplication1.Views"
+             xmlns:settings="clr-namespace:WpfApplication1.Views.Settings"
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="300">
 
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />            
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <!-- Display Range -->
-        <GroupBox Grid.Column="0" Grid.Row="0" Header="Display Range">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Label Grid.Row="0" Grid.Column="0" Content="Start"/>
-                <Label Grid.Row="0" Grid.Column="1" Content="End"/>
-                <ComboBox x:Name="comboBox" Grid.Column="0" Grid.Row="1" ItemsSource="{Binding Path=Chart.Rows}" SelectedItem="{Binding Path=Chart.SelectedRowStart}"/>
-                <ComboBox x:Name="comboBox1" Grid.Column="0" Grid.Row="2" ItemsSource="{Binding Path=Chart.Cols}" SelectedItem="{Binding Path=Chart.SelectedColStart}"/>
-                <ComboBox x:Name="comboBox2" Grid.Column="1" Grid.Row="1" ItemsSource="{Binding Path=Chart.Rows}" SelectedItem="{Binding Path=Chart.SelectedRowEnd}"/>
-                <ComboBox x:Name="comboBox3" Grid.Column="1" Grid.Row="2" ItemsSource="{Binding Path=Chart.Cols}" SelectedItem="{Binding Path=Chart.SelectedColEnd}"/>
-            </Grid>
-        </GroupBox>
-
+        <settings:ViewMask Grid.Row="0" Grid.Column="0"/>
+        <settings:ScaleControl Grid.Row="0" Grid.Column="1"/>
     </Grid>
+
 
 
 </UserControl>

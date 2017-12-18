@@ -94,15 +94,24 @@ namespace WpfApplication1.Model {
 
 
     public ChartModel(){
-      for(int i = 0; i < ROW_COUNT; i++) {
+      for(int i = 1; i < ROW_COUNT; i++) {
         _rows.Add(i);
       }
 
-      for (int i = 0; i < COL_COUNT; i++) {
+      for (int i = 1; i < COL_COUNT; i++) {
         _cols.Add(i);
       }
+
+      _selectedRowStart = 1;
+      _selectedColStart = 1;
+      _selectedRowEnd = ROW_COUNT - 1;
+      _selectedColEnd = COL_COUNT - 1;
+      SetDisplayRangeAll(true);
     }
 
+    public void RefreshChart() {
+      UpdateChart = !UpdateChart;
+    }
 
     public void ToggleNote(string str) {
       int id = Convert.ToInt32(str.Split(':')[0]);      // zero based id
@@ -130,9 +139,8 @@ namespace WpfApplication1.Model {
 
           }
         }
-
       }
-      UpdateChart = !UpdateChart;
+      RefreshChart();
     }
 
 
@@ -142,7 +150,15 @@ namespace WpfApplication1.Model {
           EnableChart[i, j] = (i >= startRow && i <= endRow && j >= startCol && j <= endCol) ? true : false;
         }
       }
-      UpdateChart = !UpdateChart;
+      RefreshChart();
+    }
+
+    public void SetDisplayRangeAll(bool state) {
+      for (int i = 0; i < ROW_COUNT; i++) {
+        for (int j = 0; j < COL_COUNT; j++) {
+          EnableChart[i, j] = state;
+        }
+      }
     }
 
 

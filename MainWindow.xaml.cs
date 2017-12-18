@@ -25,7 +25,8 @@ namespace WpfApplication1
 
         public MainWindow()
         {
-          InitializeComponent();           
+          InitializeComponent();
+          chartViewModelObject = new WpfApplication1.ViewModel.ChartViewModel();
         }
 
     private void ChartView_Loaded(object sender, RoutedEventArgs e) {
