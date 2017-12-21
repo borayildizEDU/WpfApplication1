@@ -27,11 +27,7 @@
                 <Label Grid.Column="0" Grid.Row="0" Content="Root"/>
                 <Label Grid.Column="0" Grid.Row="1" Content="Load"/>
 
-                <ComboBox x:Name="comboBox" Grid.Column="1" Grid.Row="0" ItemsSource="{Binding Path=Chart.Notelist}" SelectedIndex="{Binding Path=Chart.RootNoteID}">
-
-                </ComboBox>
-                
-                                
+                <ComboBox x:Name="comboBox" Grid.Column="1" Grid.Row="0" ItemsSource="{Binding Path=Chart.Notelist}" SelectedIndex="{Binding Path=Chart.RootNoteID}"/>
                 <ComboBox x:Name="comboBox1" Grid.Column="1" Grid.Row="1" />
                 <Button Content="Save Scale" Grid.Column="2" Grid.Row="2" />
             </Grid>
