@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using System.Collections;
 using System.Collections.ObjectModel;
 using System.Windows.Data;
 using System.Globalization;
+using System.IO;
 
 
 namespace WpfApplication1.Model {
@@ -54,6 +56,9 @@ namespace WpfApplication1.Model {
 
     private ObservableCollection<string> _notelist = new ObservableCollection<string>();
     public ObservableCollection<string> Notelist { get { return _notelist; } set { _notelist = value; RaisePropertyChanged("Notelist"); } }
+
+    private string _scaleName;
+    public string ScaleName{ get { return _scaleName; } set { _scaleName = value;  RaisePropertyChanged("ScaleName"); } }
 
     private int _rootNoteID;
     public int RootNoteID {
@@ -215,24 +220,33 @@ namespace WpfApplication1.Model {
     }
 
 
-
     public void SaveScale() {
       int j;
       int diff = _rootNoteID;
-      string strScale;
+      string strScale = "";
+      string strPath = "Scales\\" + ScaleName + ".txt";
+      ArrayList notesList = new ArrayList();
 
       // Set scale string
       for (int i = 0; i < Notes.Length; i++) {    // reorder selected notes by taking RootId as zero
         if (Notes[i]) {
-          j = (i + diff + NOTE_COUNT) % NOTE_COUNT;
-          strScale = j + ":";
+          j = (i - diff + NOTE_COUNT) % NOTE_COUNT;
+          notesList.Add(j);
         }
       }
+      notesList.Sort();
+
+      for(int i = 0; i < notesList.Count; i++) {
+        strScale += notesList[i] + ":";
+      }
+      
+
+      // WriteFile
+      using (StreamWriter writer = new StreamWriter(strPath)) {
+        writer.Write(strScale);
+      }
+
+
     }
-
-    // Load Scale
-
   }
-
-
 }
