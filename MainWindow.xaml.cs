@@ -36,6 +36,11 @@ namespace WpfApplication1
     private void SettingsView_Loaded(object sender, RoutedEventArgs e) {
       SettingsViewControl.DataContext = chartViewModelObject;
     }
+
+    private void InfoView_Loaded(object sender, RoutedEventArgs e) {
+      InfoViewControl.DataContext = chartViewModelObject;
+    }
+
   }
 
 }

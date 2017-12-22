@@ -60,6 +60,9 @@ namespace WpfApplication1.Model {
     private string _scaleName;
     public string ScaleName{ get { return _scaleName; } set { _scaleName = value;  RaisePropertyChanged("ScaleName"); } }
 
+    private string _info;
+    public string Info { get { return _info; } set { _info = value; RaisePropertyChanged("Info"); } }
+
     private int _rootNoteID;
     public int RootNoteID {
       get { return _rootNoteID; }
@@ -246,6 +249,8 @@ namespace WpfApplication1.Model {
         writer.Write(strScale);
       }
 
+      // DisplayInfo
+      Info = ScaleName + " scale is saved.";
 
     }
   }
