@@ -10,8 +10,8 @@
         <GroupBox Grid.Column="0" Grid.Row="0" Header="View Mask">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
 
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>

@@ -41,6 +41,10 @@ namespace WpfApplication1
       InfoViewControl.DataContext = chartViewModelObject;
     }
 
+    private void StatusView_Loaded(object sender, RoutedEventArgs e) {
+      StatusViewControl.DataContext = chartViewModelObject;
+    }
+
   }
 
 }

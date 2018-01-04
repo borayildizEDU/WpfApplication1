@@ -9,6 +9,8 @@ using System.Collections.ObjectModel;
 using System.Windows.Data;
 using System.Globalization;
 using System.IO;
+using System.Windows.Threading;
+
 
 
 namespace WpfApplication1.Model {
@@ -32,12 +34,7 @@ namespace WpfApplication1.Model {
 
     #region PrivateFields
     private int activeNoteCount;
-
-
-
-
-
-
+    DispatcherTimer statusTimer = new DispatcherTimer();
     #endregion
 
     #region PublicStaticFields
@@ -62,6 +59,9 @@ namespace WpfApplication1.Model {
 
     private string _info;
     public string Info { get { return _info; } set { _info = value; RaisePropertyChanged("Info"); } }
+
+    private string _status;
+    public string Status { get { return _status; } set { _status = value; RaisePropertyChanged("Status"); } }
 
     private int _rootNoteID;
     public int RootNoteID {
@@ -147,6 +147,11 @@ namespace WpfApplication1.Model {
       }
 
       SetDisplayRangeAll(true);
+
+      // Set status timer
+      statusTimer.Interval = TimeSpan.FromSeconds(3);
+      statusTimer.Tick += StatusTick;
+
     }
 
 
@@ -223,6 +228,18 @@ namespace WpfApplication1.Model {
     }
 
 
+    private void DisplayStatus(string str) {
+      Status = str;
+      statusTimer.Start();    
+    }
+
+    private void StatusTick(object sender, EventArgs e) {
+      Status = "";
+      statusTimer.Stop();
+    }
+
+
+
     public void SaveScale() {
       int j;
       int diff = _rootNoteID;
@@ -249,8 +266,9 @@ namespace WpfApplication1.Model {
         writer.Write(strScale);
       }
 
-      // DisplayInfo
-      Info = ScaleName + " scale is saved.";
+      // DisplayStatus
+      DisplayStatus(ScaleName + " scale is saved.");
+      
 
     }
   }

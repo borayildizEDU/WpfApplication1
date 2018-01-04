@@ -99,7 +99,7 @@
             
             <Button CommandParameter="0:6:8" Content="C" Canvas.Left="1204" Canvas.Top="333"/>
             <Button CommandParameter="5:5:8" Content="F" Canvas.Left="1204" Canvas.Top="265"/>
-            <Button CommandParameter="6:4:8" Content="Bb" Canvas.Left="1204" Canvas.Top="201"/>
+            <Button CommandParameter="10:4:8" Content="Bb" Canvas.Left="1204" Canvas.Top="201"/>
             <Button CommandParameter="3:3:8" Content="Eb" Canvas.Left="1204" Canvas.Top="135"/>
             <Button CommandParameter="7:2:8" Content="G" Canvas.Left="1204" Canvas.Top="75"/>
             <Button CommandParameter="0:1:8" Content="C" Canvas.Left="1204" Canvas.Top="9"/>
