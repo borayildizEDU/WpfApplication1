@@ -147,13 +147,19 @@ namespace WpfApplication1.Model {
 
 
     public void LoadScaleList() {
-      string strPath = "Scales\\";
-      DirectoryInfo dir = new DirectoryInfo(strPath);
+      string strPath = "Scales\\Scales";
+      string line; // line schema => ScaleType: ScaleName: ScaleDirection: ScaleNotes
+      string type, name, direction, notes;
+      StreamReader reader = new StreamReader(strPath);
 
-      _scalelist.Clear();
+      while ((line = reader.ReadLine()) != null) {
+        if (line == "") break;
+        type = line.Split(':')[0];
+        name = line.Split(':')[1];
+        direction = line.Split(':')[2];
+        notes = line.Split(':')[3];
 
-      foreach (FileInfo fileInfo in dir.GetFiles()) {
-        _scalelist.Add(fileInfo.Name);
+        _scalelist.Add(name);
       }
     }
 
@@ -271,7 +277,7 @@ namespace WpfApplication1.Model {
       int j;
       int diff = _rootNoteID;
       string strScale = "";
-      string strPath = "Scales\\" + SaveScale;
+      string strPath = "Scales\\Scales";
       ArrayList notesList = new ArrayList();
 
       // Set scale string
@@ -283,14 +289,15 @@ namespace WpfApplication1.Model {
       }
       notesList.Sort();
 
-      for(int i = 0; i < notesList.Count; i++) {
+      strScale += "User:" + _saveScale + ":BothWay:";
+      for (int i = 0; i < notesList.Count; i++) {
         strScale += notesList[i];
-        if (i != notesList.Count - 1) strScale += ":";
+        if (i != notesList.Count - 1) strScale += ",";
       }
-      
+      strScale += Environment.NewLine;
 
       // WriteFile
-      using (StreamWriter writer = new StreamWriter(strPath)) {
+      using (StreamWriter writer = new StreamWriter(strPath, append:true)) {
         writer.Write(strScale);
       }
 
@@ -301,26 +308,31 @@ namespace WpfApplication1.Model {
 
 
     public void LoadScale_() {
-      string strPath = "Scales\\" + _loadScale;
-      string text;
+      string strPath = "Scales\\Scales";
+      string line; // line schema => ScaleType: ScaleName: ScaleDirection: ScaleNotes
+      string type, name, direction, notes;
       int id;
+      StreamReader reader = new StreamReader(strPath);
 
       Array.Clear(Notes, 0, Notes.Length);
 
-      using (StreamReader reader = new StreamReader(strPath)) {
-        text = reader.ReadToEnd();
+
+      while((line = reader.ReadLine()) != null) {
+        type =      line.Split(':')[0];
+        name =      line.Split(':')[1];
+        direction = line.Split(':')[2];
+        notes =     line.Split(':')[3];
+
+        if(type == "User" && name == _loadScale && direction == "BothWay") {
+          foreach (string noteID in notes.Split(',')) {
+            id = Convert.ToInt32(noteID);
+            Notes[id] = true;
+          }
+          ReorderNotes(_rootNoteID);    // reorder selected notes according to rootNoteID
+          RefreshChart();
+          break;
+        }
       }
-
-      foreach (string noteID in text.Split(':')) {
-        id = Convert.ToInt32(noteID);
-        Notes[id] = true;
-      }
-
-
-      ReorderNotes(_rootNoteID);    // reorder selected notes according to rootNoteID
-
-      RefreshChart();
-
     }
 
   }
