@@ -10,20 +10,17 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
+
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <settings:ViewMask Grid.Row="0" Grid.Column="0"/>
-        <settings:ScaleControl Grid.Row="0" Grid.Column="1"/>
+        <settings:ViewMask Grid.Row="0"/>
+        <settings:ScaleControl Grid.Row="1"/>
     </Grid>
 
 

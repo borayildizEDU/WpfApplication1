@@ -7,17 +7,10 @@
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="300">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-
-        <GroupBox Header="Info: ">
-            <Grid>
-                <Label Content="{Binding Path=Chart.Info}"/>
-            </Grid>
-        </GroupBox>
+    <GroupBox Header="Info: ">
+        <Grid>
+            <Label Content="{Binding Path=Chart.Info}"/>
+        </Grid>
+    </GroupBox>
     </Grid>
 </UserControl>

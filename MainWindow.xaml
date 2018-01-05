@@ -13,21 +13,25 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="0.2*" />
+            <RowDefinition Height="0.1*" />
         </Grid.RowDefinitions>
-        <views:ChartView  x:Name = "ChartViewControl" Loaded = "ChartView_Loaded" Grid.Row="0" Grid.Column="0"/>
-        <views:InfoView x:Name = "InfoViewControl" Loaded = "InfoView_Loaded" Grid.Row="1" Grid.Column="0"/>
-        <views:SettingsView x:Name = "SettingsViewControl" Loaded = "SettingsView_Loaded" Grid.Row="2" Grid.Column="0"/>
+
+        <views:ChartView  x:Name = "ChartViewControl" Loaded = "ChartView_Loaded" Grid.Row="0"/>        
+        
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <views:InfoView x:Name = "InfoViewControl" Loaded = "InfoView_Loaded" Grid.Column="0"/>
+            <views:SettingsView x:Name = "SettingsViewControl" Loaded = "SettingsView_Loaded" Grid.Column="1"/>
+
+        </Grid>
+
         <views:StatusView x:Name = "StatusViewControl" Loaded = "StatusView_Loaded" Grid.Row="5" Grid.Column="0"/>
+
     </Grid>
-
-
-
-
-
 
 </Window>
 

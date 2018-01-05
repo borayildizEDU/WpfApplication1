@@ -149,19 +149,21 @@ namespace WpfApplication1.Model {
     public void LoadScaleList() {
       string strPath = "Scales\\Scales";
       string line; // line schema => ScaleType: ScaleName: ScaleDirection: ScaleNotes
-      string type, name, direction, notes;
-      StreamReader reader = new StreamReader(strPath);
+      string type, name, direction, notes;      
 
-      while ((line = reader.ReadLine()) != null) {
-        if (line == "") break;
-        type = line.Split(':')[0];
-        name = line.Split(':')[1];
-        direction = line.Split(':')[2];
-        notes = line.Split(':')[3];
+      using(StreamReader reader = new StreamReader(strPath)) {
+        while ((line = reader.ReadLine()) != null) {
+          if (line == "") break;
+          type = line.Split(':')[0];
+          name = line.Split(':')[1];
+          direction = line.Split(':')[2];
+          notes = line.Split(':')[3];
 
-        _scalelist.Add(name);
+          _scalelist.Add(name);
+        }
       }
     }
+
 
     // Constructor
     public ChartModel(){
@@ -186,9 +188,6 @@ namespace WpfApplication1.Model {
       statusTimer.Tick += StatusTick;
 
     }
-
-
-
 
 
     // RefreshChart
@@ -307,32 +306,64 @@ namespace WpfApplication1.Model {
     }
 
 
-    public void LoadScale_() {
+    private void UpdateInfo(string notes_) {
       string strPath = "Scales\\Scales";
       string line; // line schema => ScaleType: ScaleName: ScaleDirection: ScaleNotes
       string type, name, direction, notes;
-      int id;
-      StreamReader reader = new StreamReader(strPath);
+      string equalScales = "", childScales = "", parentScales = "", nearScalesDegreeOne = "", nearScalesDegreeTwo = "";
+      int equalScale_count = 0;
+
+      Info = "";
+
+      using (StreamReader reader = new StreamReader(strPath)) {
+        while ((line = reader.ReadLine()) != null) {
+          type = line.Split(':')[0];
+          name = line.Split(':')[1];
+          direction = line.Split(':')[2];
+          notes = line.Split(':')[3];
+
+          if (notes == notes_) {
+            if (equalScale_count > 0) equalScales += ", ";
+            equalScales += name;
+            equalScale_count++;
+          }
+        }
+      }
+
+
+      Info = "Equal Scales: " + equalScales + Environment.NewLine;
+
+    }
+
+    public void LoadScale_() {
+      string strPath = "Scales\\Scales";
+      string line; // line schema => ScaleType: ScaleName: ScaleDirection: ScaleNotes
+      string type, name, direction, notes = "";
+      int id;      
 
       Array.Clear(Notes, 0, Notes.Length);
 
+      using(StreamReader reader = new StreamReader(strPath)) {
+        while ((line = reader.ReadLine()) != null) {
+          type = line.Split(':')[0];
+          name = line.Split(':')[1];
+          direction = line.Split(':')[2];
+          notes = line.Split(':')[3];
 
-      while((line = reader.ReadLine()) != null) {
-        type =      line.Split(':')[0];
-        name =      line.Split(':')[1];
-        direction = line.Split(':')[2];
-        notes =     line.Split(':')[3];
-
-        if(type == "User" && name == _loadScale && direction == "BothWay") {
-          foreach (string noteID in notes.Split(',')) {
-            id = Convert.ToInt32(noteID);
-            Notes[id] = true;
+          if (type == "User" && name == _loadScale && direction == "BothWay") {
+            foreach (string noteID in notes.Split(',')) {
+              id = Convert.ToInt32(noteID);
+              Notes[id] = true;
+            }
+            ReorderNotes(_rootNoteID);    // reorder selected notes according to rootNoteID
+            RefreshChart();
+            break;
           }
-          ReorderNotes(_rootNoteID);    // reorder selected notes according to rootNoteID
-          RefreshChart();
-          break;
         }
       }
+
+      UpdateInfo(notes);
+
     }
 
   }
