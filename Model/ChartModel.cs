@@ -316,6 +316,9 @@ namespace WpfApplication1.Model {
         Notes[id] = true;
       }
 
+
+      ReorderNotes(_rootNoteID);    // reorder selected notes according to rootNoteID
+
       RefreshChart();
 
     }
