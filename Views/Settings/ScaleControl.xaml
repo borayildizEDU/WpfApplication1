@@ -33,7 +33,7 @@
                 <Label Grid.Column="0" Grid.Row="1" Content="Load"/>
 
                 <ComboBox x:Name="comboBox" Grid.Column="1" Grid.Row="0" ItemsSource="{Binding Path=Chart.Notelist}" SelectedIndex="{Binding Path=Chart.RootNoteID}"/>
-                <ComboBox x:Name="comboBox1" Grid.Column="1" Grid.Row="1" />
+                <ComboBox x:Name="comboBox1" Grid.Column="1" Grid.Row="1" ItemsSource="{Binding Path=Chart.Scalelist}" SelectedValue="{Binding Path=Chart.LoadScale}"/>
             </Grid>
         </GroupBox>
 
@@ -44,7 +44,7 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
-                <TextBox x:Name="scaleName" Text="{Binding Path=Chart.ScaleName}" />
+                <TextBox x:Name="scaleName" Text="{Binding Path=Chart.SaveScale}" />
                 <Button Content="Save Scale" Command ="{Binding SaveScaleCommand}" Grid.Row="1" />
             </Grid>
         </GroupBox>

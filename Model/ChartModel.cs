@@ -34,7 +34,7 @@ namespace WpfApplication1.Model {
 
     #region PrivateFields
     private int activeNoteCount;
-    DispatcherTimer statusTimer = new DispatcherTimer();
+    private DispatcherTimer statusTimer = new DispatcherTimer();
     #endregion
 
     #region PublicStaticFields
@@ -54,14 +54,28 @@ namespace WpfApplication1.Model {
     private ObservableCollection<string> _notelist = new ObservableCollection<string>();
     public ObservableCollection<string> Notelist { get { return _notelist; } set { _notelist = value; RaisePropertyChanged("Notelist"); } }
 
-    private string _scaleName;
-    public string ScaleName{ get { return _scaleName; } set { _scaleName = value;  RaisePropertyChanged("ScaleName"); } }
+    private ObservableCollection<string> _scalelist = new ObservableCollection<string>();
+    public ObservableCollection<string> Scalelist { get { return _scalelist; } set { _scalelist = value; RaisePropertyChanged("Scalelist"); } }
+
+    private string _saveScale;
+    public string SaveScale{ get { return _saveScale; } set { _saveScale = value;  RaisePropertyChanged("SaveScale"); } }
 
     private string _info;
     public string Info { get { return _info; } set { _info = value; RaisePropertyChanged("Info"); } }
 
     private string _status;
     public string Status { get { return _status; } set { _status = value; RaisePropertyChanged("Status"); } }
+
+    private string _loadScale;
+    public string LoadScale {
+      get { return _loadScale; }
+      set {
+        _loadScale = value;
+        LoadScale_();
+        RaisePropertyChanged("LoadScale");
+      }
+    }
+
 
     private int _rootNoteID;
     public int RootNoteID {
@@ -132,6 +146,17 @@ namespace WpfApplication1.Model {
     #endregion
 
 
+    public void LoadScaleList() {
+      string strPath = "Scales\\";
+      DirectoryInfo dir = new DirectoryInfo(strPath);
+
+      _scalelist.Clear();
+
+      foreach (FileInfo fileInfo in dir.GetFiles()) {
+        _scalelist.Add(fileInfo.Name);
+      }
+    }
+
     // Constructor
     public ChartModel(){
       for(int i = 1; i < ROW_COUNT; i++) {
@@ -145,6 +170,8 @@ namespace WpfApplication1.Model {
       for (int i = 0; i < NOTE_COUNT; i++) {
         _notelist.Add(NoteStr[i]);
       }
+
+      LoadScaleList();
 
       SetDisplayRangeAll(true);
 
@@ -240,11 +267,11 @@ namespace WpfApplication1.Model {
 
 
 
-    public void SaveScale() {
+    public void SaveScale_() {
       int j;
       int diff = _rootNoteID;
       string strScale = "";
-      string strPath = "Scales\\" + ScaleName + ".txt";
+      string strPath = "Scales\\" + SaveScale;
       ArrayList notesList = new ArrayList();
 
       // Set scale string
@@ -257,7 +284,8 @@ namespace WpfApplication1.Model {
       notesList.Sort();
 
       for(int i = 0; i < notesList.Count; i++) {
-        strScale += notesList[i] + ":";
+        strScale += notesList[i];
+        if (i != notesList.Count - 1) strScale += ":";
       }
       
 
@@ -267,9 +295,30 @@ namespace WpfApplication1.Model {
       }
 
       // DisplayStatus
-      DisplayStatus(ScaleName + " scale is saved.");
+      DisplayStatus(SaveScale + " scale is saved.");
       
+    }
+
+
+    public void LoadScale_() {
+      string strPath = "Scales\\" + _loadScale;
+      string text;
+      int id;
+
+      Array.Clear(Notes, 0, Notes.Length);
+
+      using (StreamReader reader = new StreamReader(strPath)) {
+        text = reader.ReadToEnd();
+      }
+
+      foreach (string noteID in text.Split(':')) {
+        id = Convert.ToInt32(noteID);
+        Notes[id] = true;
+      }
+
+      RefreshChart();
 
     }
+
   }
 }

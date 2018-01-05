@@ -28,14 +28,17 @@ namespace WpfApplication1.ViewModel{
 
     public MyICommand ToggleCommand { get; set; }
     public MyICommand SaveScaleCommand { get; set; }
+    public MyICommand LoadScaleListCommand { get; set; }
 
     public void OnToggle(object obj) {
       Chart.ToggleNote(obj.ToString());
     }
 
     public void SaveScale(object obj) {
-      Chart.SaveScale();
+      Chart.SaveScale_();
     }
+
+
 
   }
 }
