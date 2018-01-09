@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Scales>
+
+
+  <!-------Diatonic Scales----->
+  
+  <scale type='Diatonic Scales'>
+    <name> Ionian </name>
+    <direction> both </direction>
+    <notes> 0,2,4,5,7,9,11 </notes>
+    <info> 
+      Diatonic scale 
+     </info>
+    <examplesongs> None </examplesongs>
+  </scale>
+
+  <scale type='Diatonic Scales'>
+    <name> Dorian </name>
+    <direction> both </direction>
+    <notes> 0,2,3,5,7,9,10 </notes>
+    <info> 
+      Diatonic scale 
+    </info>
+    <examplesongs> None </examplesongs>
+  </scale>
+  
+  <scale type='Diatonic Scales'>
+    <name> Phrygian </name>
+    <direction> both </direction>
+    <notes> 0,1,3,5,7,8,10 </notes>
+    <info> 
+      Diatonic scale 
+     </info>
+    <examplesongs> None </examplesongs>
+  </scale>
+
+  <scale type='Diatonic Scales'>
+    <name> Lydian </name>
+    <direction> both </direction>
+    <notes> 0,2,4,6,7,9,11 </notes>
+    <info> 
+      Diatonic scale 
+    </info>
+    <examplesongs> None </examplesongs>
+  </scale>
+
+  <scale type='Diatonic Scales'>
+    <name> Mixolydian </name>
+    <direction> both </direction>
+    <notes> 0,2,4,5,7,9,10 </notes>
+    <info> 
+      Diatonic scale 
+     </info>
+    <examplesongs> None </examplesongs>
+  </scale>
+
+  <scale type='Diatonic Scales'>
+    <name> Aeolian </name>
+    <direction> both </direction>
+    <notes> 0,2,3,5,7,8,10 </notes>
+    <info> 
+      Diatonic scale 
+    </info>
+    <examplesongs> None </examplesongs>
+  </scale>
+  
+  <scale type='Diatonic Scales'>
+    <name> Locrian </name>
+    <direction> both </direction>
+    <notes> 0,1,3,5,6,8,10 </notes>
+    <info> 
+      Diatonic scale 
+    </info>
+    <examplesongs> None </examplesongs>
+  </scale>  
+
+  
+  
+  <!-------Ableton Scales----->
+  <scale type='Ableton Scales'>
+    <name> Major </name>
+    <direction> both </direction>
+    <notes> 0,2,4,5,7,9,11 </notes>
+    <info> 
+      Ableton scale 
+    </info>
+    <examplesongs> None </examplesongs>
+  </scale>   
+  
+  <scale type='Ableton Scales'>
+    <name> Minor </name>
+    <direction> both </direction>
+    <notes> 0,2,3,5,7,8,10 </notes>
+    <info> 
+      Ableton scale 
+    </info>
+    <examplesongs> None </examplesongs>
+  </scale>  
+
+  <scale type='Ableton Scales'>
+    <name> Dorian </name>
+    <direction> both </direction>
+    <notes> 0,2,3,5,7,9,10 </notes>
+    <info> 
+      Ableton scale 
+    </info>
+    <examplesongs> None </examplesongs>
+  </scale>  
+
+  <scale type='Ableton Scales'>
+    <name> Mixolydian </name>
+    <direction> both </direction>
+    <notes> 0,2,4,5,7,9,10 </notes>
+    <info> 
+      Ableton scale 
+    </info>
+    <examplesongs> None </examplesongs>
+  </scale>  
+
+  <scale type='Ableton Scales'>
+    <name> Lydian </name>
+    <direction> both </direction>
+    <notes> 0,2,4,6,7,9,11 </notes>
+    <info> 
+      Ableton scale 
+    </info>
+    <examplesongs> None </examplesongs>
+  </scale>  
+
+  <scale type='Ableton Scales'>
+    <name> Phrygian </name>
+    <direction> both </direction>
+    <notes> 0,1,3,5,7,8,10 </notes>
+    <info> 
+      Ableton scale 
+    </info>
+    <examplesongs> None </examplesongs>
+  </scale>  
+
+  <scale type='Ableton Scales'>
+    <name> Locrian </name>
+    <direction> both </direction>
+    <notes> 0,1,3,5,6,8,10 </notes>
+    <info> 
+      Ableton scale 
+    </info>
+    <examplesongs> None </examplesongs>
+  </scale>  
+
+  <scale type='Ableton Scales'>
+    <name> Diminished </name>
+    <direction> both </direction>
+    <notes> 0,1,3,4,6,7,9,10 </notes>
+    <info> 
+      Ableton scale 
+    </info>
+    <examplesongs> None </examplesongs>
+  </scale>  
+
+  <scale type='Ableton Scales'>
+    <name> Whole-half </name>
+    <direction> both </direction>
+    <notes> 0,2,3,5,6,8,9,11 </notes>
+    <info> 
+      Ableton scale 
+    </info>
+    <examplesongs> None </examplesongs>
+  </scale>  
+
+  <scale type='Ableton Scales'>
+    <name> WholeTone </name>
+    <direction> both </direction>
+    <notes> 0,2,4,6,8,10 </notes>
+    <info> 
+      Ableton scale 
+    </info>
+    <examplesongs> None </examplesongs>
+  </scale>  
+
+  <scale type='Ableton Scales'>
+    <name> MinorBlues </name>
+    <direction> both </direction>
+    <notes> 0,3,5,6,7,10 </notes>
+    <info> 
+      Ableton scale 
+    </info>
+    <examplesongs> None </examplesongs>
+  </scale>  
+
+  <scale type='Ableton Scales'>
+    <name> MinorPentatonic </name>
+    <direction> both </direction>
+    <notes> 0,3,5,7,10 </notes>
+    <info> 
+      Ableton scale 
+    </info>
+    <examplesongs> None </examplesongs>
+  </scale>    
+  
+  <scale type='Ableton Scales'>
+    <name> MajorPentatonic </name>
+    <direction> both </direction>
+    <notes> 0,2,4,7,9 </notes>
+    <info> 
+      Ableton scale 
+    </info>
+    <examplesongs> None </examplesongs>
+  </scale>   
+
+  <scale type='Ableton Scales'>
+    <name> HarmonicMinor </name>
+    <direction> both </direction>
+    <notes> 0,2,3,5,7,8,11 </notes>
+    <info> 
+      Ableton scale 
+    </info>
+    <examplesongs> None </examplesongs>
+  </scale>   
+
+  <scale type='Ableton Scales'>
+    <name> MelodicMinor </name>
+    <direction> both </direction>
+    <notes> 0,2,3,5,7,9,11 </notes>
+    <info> 
+      Ableton scale 
+    </info>
+    <examplesongs> None </examplesongs>
+  </scale>   
+
+  <scale type='Ableton Scales'>
+    <name> SuperLocrian </name>
+    <direction> both </direction>
+    <notes> 0,1,3,4,6,8,10 </notes>
+    <info> 
+      Ableton scale 
+    </info>
+    <examplesongs> None </examplesongs>
+  </scale>   
+
+  <scale type='Ableton Scales'>
+    <name> Bhairav </name>
+    <direction> both </direction>
+    <notes> 0,1,4,5,7,8,11 </notes>
+    <info> 
+      Ableton scale 
+    </info>
+    <examplesongs> None </examplesongs>
+  </scale>   
+
+  <scale type='Ableton Scales'>
+    <name> HungarianMinor </name>
+    <direction> both </direction>
+    <notes> 0,2,3,6,7,8,11 </notes>
+    <info> 
+      Ableton scale 
+    </info>
+    <examplesongs> None </examplesongs>
+  </scale>   
+
+  <scale type='Ableton Scales'>
+    <name> MinorGypsy </name>
+    <direction> both </direction>
+    <notes> 0,1,4,5,7,8,10 </notes>
+    <info> 
+      Ableton scale 
+    </info>
+    <examplesongs> None </examplesongs>
+  </scale>   
+
+  <scale type='Ableton Scales'>
+    <name> Hirojoshi </name>
+    <direction> both </direction>
+    <notes> 0,2,3,7,8 </notes>
+    <info> 
+      Ableton scale 
+    </info>
+    <examplesongs> None </examplesongs>
+  </scale>   
+
+  <scale type='Ableton Scales'>
+    <name> In-Sen </name>
+    <direction> both </direction>
+    <notes> 0,1,5,7,10 </notes>
+    <info> 
+      Ableton scale 
+    </info>
+    <examplesongs> None </examplesongs>
+  </scale>   
+
+  <scale type='Ableton Scales'>
+    <name> Iwato </name>
+    <direction> both </direction>
+    <notes> 0,1,5,6,10 </notes>
+    <info> 
+      Ableton scale 
+    </info>
+    <examplesongs> None </examplesongs>
+  </scale>   
+  
+  <scale type='Ableton Scales'>
+    <name> Kumoi </name>
+    <direction> both </direction>
+    <notes> 0,2,3,7,9 </notes>
+    <info> 
+      Ableton scale 
+    </info>
+    <examplesongs> None </examplesongs>
+  </scale>  
+  
+  <scale type='Ableton Scales'>
+    <name> Pelog </name>
+    <direction> both </direction>
+    <notes> 0,1,3,4,7,8 </notes>
+    <info> 
+      Ableton scale 
+    </info>
+    <examplesongs> None </examplesongs>
+  </scale>  
+  
+  <scale type='Ableton Scales'>
+    <name> Spanish </name>
+    <direction> both </direction>
+    <notes> 0,1,3,4,5,6,8,10 </notes>
+    <info> 
+      Ableton scale 
+    </info>
+    <examplesongs> None </examplesongs>
+  </scale>   
+  
+  
+  
+  
+  
+
+</Scales>

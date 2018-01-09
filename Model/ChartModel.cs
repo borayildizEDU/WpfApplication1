@@ -10,6 +10,7 @@ using System.Windows.Data;
 using System.Globalization;
 using System.IO;
 using System.Windows.Threading;
+using System.Xml;
 
 
 
@@ -147,18 +148,17 @@ namespace WpfApplication1.Model {
 
 
     public void LoadScaleList() {
-      string strPath = "Scales\\Scales";
-      string line; // line schema => ScaleType: ScaleName: ScaleDirection: ScaleNotes
-      string type, name, direction, notes;      
+      string strPath = "Scales\\Scales.xml";
+      string type, name;
 
-      using(StreamReader reader = new StreamReader(strPath)) {
-        while ((line = reader.ReadLine()) != null) {
-          if (line == "") break;
-          type = line.Split(':')[0];
-          name = line.Split(':')[1];
-          direction = line.Split(':')[2];
-          notes = line.Split(':')[3];
+      using (XmlReader reader = XmlReader.Create(strPath)) {
+        while (reader.ReadToFollowing("scale")) {          
+          reader.MoveToFirstAttribute();
+          type = reader.Value;
+          // TODO: add type list
 
+          reader.ReadToFollowing("name");
+          name = reader.ReadElementContentAsString();
           _scalelist.Add(name);
         }
       }
@@ -307,20 +307,23 @@ namespace WpfApplication1.Model {
 
 
     private void UpdateInfo(string notes_) {
-      string strPath = "Scales\\Scales";
-      string line; // line schema => ScaleType: ScaleName: ScaleDirection: ScaleNotes
+      string strPath = "Scales\\Scales.xml";
       string type, name, direction, notes;
       string equalScales = "", childScales = "", parentScales = "", nearScalesDegreeOne = "", nearScalesDegreeTwo = "";
       int equalScale_count = 0;
 
       Info = "";
 
-      using (StreamReader reader = new StreamReader(strPath)) {
-        while ((line = reader.ReadLine()) != null) {
-          type = line.Split(':')[0];
-          name = line.Split(':')[1];
-          direction = line.Split(':')[2];
-          notes = line.Split(':')[3];
+      using (XmlReader reader = XmlReader.Create(strPath)) {
+        while (reader.ReadToFollowing("scale")) {
+          reader.MoveToFirstAttribute();
+          type = reader.Value;
+          reader.ReadToFollowing("name");
+          name = reader.ReadElementContentAsString();
+          reader.ReadToFollowing("direction");
+          direction = reader.ReadElementContentAsString();
+          reader.ReadToFollowing("notes");
+          notes = reader.ReadElementContentAsString();
 
           if (notes == notes_) {
             if (equalScale_count > 0) equalScales += ", ";
@@ -330,27 +333,30 @@ namespace WpfApplication1.Model {
         }
       }
 
-
       Info = "Equal Scales: " + equalScales + Environment.NewLine;
 
     }
 
+
+
+
     public void LoadScale_() {
-      string strPath = "Scales\\Scales";
-      string line; // line schema => ScaleType: ScaleName: ScaleDirection: ScaleNotes
-      string type, name, direction, notes = "";
-      int id;      
+      string strPath = "Scales\\Scales.xml";
+      string type, name, notes = "";
+      int id;
 
-      Array.Clear(Notes, 0, Notes.Length);
+      using (XmlReader reader = XmlReader.Create(strPath)) {
+        while (reader.ReadToFollowing("scale")) {
+          reader.MoveToFirstAttribute();
+          type = reader.Value;
+          // TODO: check the type 
 
-      using(StreamReader reader = new StreamReader(strPath)) {
-        while ((line = reader.ReadLine()) != null) {
-          type = line.Split(':')[0];
-          name = line.Split(':')[1];
-          direction = line.Split(':')[2];
-          notes = line.Split(':')[3];
+          reader.ReadToFollowing("name");
+          name = reader.ReadElementContentAsString();
+          if(name == _loadScale) {
+            reader.ReadToFollowing("notes");
+            notes = reader.ReadElementContentAsString();
 
-          if (type == "User" && name == _loadScale && direction == "BothWay") {
             foreach (string noteID in notes.Split(',')) {
               id = Convert.ToInt32(noteID);
               Notes[id] = true;
