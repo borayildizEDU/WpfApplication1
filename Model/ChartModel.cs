@@ -350,10 +350,59 @@ namespace WpfApplication1.Model {
     }
 
 
+    private string GetChords(string notes) {
+      string chords = "";
+      string[] suffix = new string[7];
+      ArrayList noteList = new ArrayList();
+      int firstNote, thirdNote, fifthNote;
+      int diff1, diff2;
+      int noteId;
+
+      foreach (string noteID in notes.Split(',')) {
+        noteList.Add(Convert.ToInt32(noteID));
+      }
+
+      for(int i = 0; i < noteList.Count; i++) {
+        firstNote = (int)noteList[i];
+        thirdNote = (int)noteList[((i + 2 + noteList.Count) % noteList.Count)];
+        fifthNote = (int)noteList[((i + 4 + noteList.Count) % noteList.Count)];
+
+        diff1 = (thirdNote - firstNote + NOTE_COUNT) % NOTE_COUNT;
+        diff2 = (fifthNote - thirdNote + NOTE_COUNT) % NOTE_COUNT;
+
+        if (diff1 == 4) {
+          // major, no additional suffix    
+        }
+        else if (diff1 == 3) {
+          suffix[i] = "m";    // minor
+          if(diff2 == 4) {
+            // no additional suffix
+          }
+          else if(diff2 == 3) {
+            suffix[i] += "b5";
+          }
+          else {
+            suffix[i] += "?";
+          }
+        }
+        else {
+          suffix[i] = "?";
+        }
+
+        noteId = ((int)noteList[i] + _rootNoteID + NOTE_COUNT) % NOTE_COUNT;
+        chords += (NoteStr[noteId] + suffix[i]);
+        if (i != noteList.Count - 1) chords += " ,";
+      }
+
+      return chords;
+    }
+
+
     private void UpdateInfo(string notes_) {
       string strPath = "Scales\\Scales.xml";
       string type, name, direction, notes;
       string equalScales = "", childScales = "", parentScales = "", nearScalesDegreeOne = "", nearScalesDegreeTwo = "";
+      string chords;
       int equalScale_count = 0;
 
       Info = "";
@@ -371,13 +420,17 @@ namespace WpfApplication1.Model {
 
           if (notes == notes_) {
             if (equalScale_count > 0) equalScales += ", ";
-            equalScales += name;
+            equalScales += (type + ":" + name);
             equalScale_count++;
           }
         }
       }
 
-      Info = "Equal Scales: " + equalScales + Environment.NewLine;
+      chords = GetChords(notes_);
+
+      Info = "Equal Scales-> " + equalScales + Environment.NewLine;
+      Info += "Chords-> " + chords + Environment.NewLine;
+
 
     }
 
