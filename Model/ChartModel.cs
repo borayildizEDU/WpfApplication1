@@ -58,6 +58,9 @@ namespace WpfApplication1.Model {
     private ObservableCollection<string> _scalelist = new ObservableCollection<string>();
     public ObservableCollection<string> Scalelist { get { return _scalelist; } set { _scalelist = value; RaisePropertyChanged("Scalelist"); } }
 
+    private ObservableCollection<string> _typelist = new ObservableCollection<string>();
+    public ObservableCollection<string> Typelist { get { return _typelist; } set { _typelist = value; RaisePropertyChanged("Typelist"); } }
+
     private string _saveScale;
     public string SaveScale{ get { return _saveScale; } set { _saveScale = value;  RaisePropertyChanged("SaveScale"); } }
 
@@ -74,6 +77,16 @@ namespace WpfApplication1.Model {
         _loadScale = value;
         LoadScale_();
         RaisePropertyChanged("LoadScale");
+      }
+    }
+
+    private string _scaleType;
+    public string ScaleType {
+      get { return _scaleType; }
+      set {
+        _scaleType = value;
+        LoadScaleList(_scaleType);
+        RaisePropertyChanged("ScaleType");
       }
     }
 
@@ -147,19 +160,48 @@ namespace WpfApplication1.Model {
     #endregion
 
 
-    public void LoadScaleList() {
+
+    public void LoadTypeList() {
       string strPath = "Scales\\Scales.xml";
-      string type, name;
+      string type;
+
+      _typelist.Clear();
+      _typelist.Add("Any");
 
       using (XmlReader reader = XmlReader.Create(strPath)) {
-        while (reader.ReadToFollowing("scale")) {          
+        while (reader.ReadToFollowing("scale")) {
           reader.MoveToFirstAttribute();
           type = reader.Value;
-          // TODO: add type list
+          if (!_typelist.Contains(type)) {
+            _typelist.Add(type);
+          }
+        }
+      }
+    }
 
-          reader.ReadToFollowing("name");
-          name = reader.ReadElementContentAsString();
-          _scalelist.Add(name);
+
+    public void LoadScaleList(string type) {
+      string strPath = "Scales\\Scales.xml";
+      string name, type_;
+
+      _scalelist.Clear();
+
+      using (XmlReader reader = XmlReader.Create(strPath)) {
+        while (reader.ReadToFollowing("scale")) {
+          reader.MoveToFirstAttribute();
+          type_ = reader.Value;
+
+          if(type == "Any") {
+            reader.ReadToFollowing("name");
+            name = reader.ReadElementContentAsString();
+            _scalelist.Add(type_ + ":" + name);
+          }
+          else if(type_ == type) {
+            reader.ReadToFollowing("name");
+            name = reader.ReadElementContentAsString();
+            _scalelist.Add(name);
+          }
+
         }
       }
     }
@@ -178,8 +220,10 @@ namespace WpfApplication1.Model {
       for (int i = 0; i < NOTE_COUNT; i++) {
         _notelist.Add(NoteStr[i]);
       }
-
-      LoadScaleList();
+      
+      LoadTypeList();
+      _scaleType = "Any";
+      LoadScaleList(_scaleType);
 
       SetDisplayRangeAll(true);
 
@@ -338,12 +382,22 @@ namespace WpfApplication1.Model {
     }
 
 
-
-
     public void LoadScale_() {
       string strPath = "Scales\\Scales.xml";
       string type, name, notes = "";
+      string load_type, load_name;
       int id;
+
+      if (_loadScale == null) return;
+
+      if(_scaleType == "Any") {
+        load_type = _loadScale.Split(':')[0];
+        load_name = _loadScale.Split(':')[1];
+      }
+      else {
+        load_type = _scaleType;
+        load_name = _loadScale;
+      }
 
       Array.Clear(Notes, 0, Notes.Length);
 
@@ -351,22 +405,24 @@ namespace WpfApplication1.Model {
         while (reader.ReadToFollowing("scale")) {
           reader.MoveToFirstAttribute();
           type = reader.Value;
-          // TODO: check the type 
 
-          reader.ReadToFollowing("name");
-          name = reader.ReadElementContentAsString();
-          if(name == _loadScale) {
-            reader.ReadToFollowing("notes");
-            notes = reader.ReadElementContentAsString();
+          if(type == load_type) {
+            reader.ReadToFollowing("name");
+            name = reader.ReadElementContentAsString();
+            if (name == load_name) {
+              reader.ReadToFollowing("notes");
+              notes = reader.ReadElementContentAsString();
 
-            foreach (string noteID in notes.Split(',')) {
-              id = Convert.ToInt32(noteID);
-              Notes[id] = true;
+              foreach (string noteID in notes.Split(',')) {
+                id = Convert.ToInt32(noteID);
+                Notes[id] = true;
+              }
+              ReorderNotes(_rootNoteID);    // reorder selected notes according to rootNoteID
+              RefreshChart();
+              break;
             }
-            ReorderNotes(_rootNoteID);    // reorder selected notes according to rootNoteID
-            RefreshChart();
-            break;
           }
+
         }
       }
 

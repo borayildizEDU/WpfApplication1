@@ -24,16 +24,19 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0" Grid.Row="0" Content="Root"/>
-                <Label Grid.Column="0" Grid.Row="1" Content="Load"/>
+                <Label Grid.Column="0" Grid.Row="1" Content="Type"/>
+                <Label Grid.Column="0" Grid.Row="2" Content="Load"/>
 
                 <ComboBox x:Name="comboBox" Grid.Column="1" Grid.Row="0" ItemsSource="{Binding Path=Chart.Notelist}" SelectedIndex="{Binding Path=Chart.RootNoteID}"/>
-                <ComboBox x:Name="comboBox1" Grid.Column="1" Grid.Row="1" ItemsSource="{Binding Path=Chart.Scalelist}" SelectedValue="{Binding Path=Chart.LoadScale}"/>
+                <ComboBox x:Name="comboBox1" Grid.Column="1" Grid.Row="1" ItemsSource="{Binding Path=Chart.Typelist}" SelectedValue="{Binding Path=Chart.ScaleType}"/>
+                <ComboBox x:Name="comboBox2" Grid.Column="1" Grid.Row="2" ItemsSource="{Binding Path=Chart.Scalelist}" SelectedValue="{Binding Path=Chart.LoadScale}"/>
             </Grid>
         </GroupBox>
 
