@@ -345,6 +345,8 @@ namespace WpfApplication1.Model {
       string type, name, notes = "";
       int id;
 
+      Array.Clear(Notes, 0, Notes.Length);
+
       using (XmlReader reader = XmlReader.Create(strPath)) {
         while (reader.ReadToFollowing("scale")) {
           reader.MoveToFirstAttribute();
