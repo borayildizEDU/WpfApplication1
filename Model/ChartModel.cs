@@ -36,6 +36,7 @@ namespace WpfApplication1.Model {
     #region PrivateFields
     private int activeNoteCount;
     private DispatcherTimer statusTimer = new DispatcherTimer();
+    private string activeScaleNotes;
     #endregion
 
     #region PublicStaticFields
@@ -98,6 +99,7 @@ namespace WpfApplication1.Model {
         ReorderNotes((value - _rootNoteID));    // reorder selected notes by diff
 
         _rootNoteID = value;
+        UpdateInfo();
         RaisePropertyChanged("RootNoteID");        
       }
     }
@@ -352,7 +354,7 @@ namespace WpfApplication1.Model {
 
     private string GetChords(string notes) {
       string chords = "";
-      string[] suffix = new string[7];
+      string[] suffix = new string[NOTE_COUNT];
       ArrayList noteList = new ArrayList();
       int firstNote, thirdNote, fifthNote;
       int diff1, diff2;
@@ -398,7 +400,7 @@ namespace WpfApplication1.Model {
     }
 
 
-    private void UpdateInfo(string notes_) {
+    private void UpdateInfo() {
       string strPath = "Scales\\Scales.xml";
       string type, name, direction, notes;
       string equalScales = "", childScales = "", parentScales = "", nearScalesDegreeOne = "", nearScalesDegreeTwo = "";
@@ -418,7 +420,7 @@ namespace WpfApplication1.Model {
           reader.ReadToFollowing("notes");
           notes = reader.ReadElementContentAsString();
 
-          if (notes == notes_) {
+          if (notes == activeScaleNotes) {
             if (equalScale_count > 0) equalScales += ", ";
             equalScales += (type + ":" + name);
             equalScale_count++;
@@ -426,7 +428,7 @@ namespace WpfApplication1.Model {
         }
       }
 
-      chords = GetChords(notes_);
+      chords = GetChords(activeScaleNotes);
 
       Info = "Equal Scales-> " + equalScales + Environment.NewLine;
       Info += "Chords-> " + chords + Environment.NewLine;
@@ -437,9 +439,11 @@ namespace WpfApplication1.Model {
 
     public void LoadScale_() {
       string strPath = "Scales\\Scales.xml";
-      string type, name, notes = "";
+      string type, name;
       string load_type, load_name;
       int id;
+
+      activeScaleNotes = "";
 
       if (_loadScale == null) return;
 
@@ -464,9 +468,9 @@ namespace WpfApplication1.Model {
             name = reader.ReadElementContentAsString();
             if (name == load_name) {
               reader.ReadToFollowing("notes");
-              notes = reader.ReadElementContentAsString();
+              activeScaleNotes = reader.ReadElementContentAsString();
 
-              foreach (string noteID in notes.Split(',')) {
+              foreach (string noteID in activeScaleNotes.Split(',')) {
                 id = Convert.ToInt32(noteID);
                 Notes[id] = true;
               }
@@ -479,7 +483,7 @@ namespace WpfApplication1.Model {
         }
       }
 
-      UpdateInfo(notes);
+      UpdateInfo();
 
     }
 
