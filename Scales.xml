@@ -8,7 +8,7 @@
   <scale type='Diatonic Scales'>
     <name> Ionian </name>
     <direction> both </direction>
-    <notes> 0,2,4,5,7,9,11 </notes>
+    <notes>0,2,4,5,7,9,11</notes>
     <info> 
       Diatonic scale 
      </info>
@@ -81,7 +81,7 @@
   <scale type='Ableton Scales'>
     <name> Major </name>
     <direction> both </direction>
-    <notes> 0,2,4,5,7,9,11 </notes>
+    <notes>0,2,4,5,7,9,11</notes>
     <info> 
       Ableton scale 
     </info>

@@ -96,10 +96,10 @@ namespace WpfApplication1.Model {
     public int RootNoteID {
       get { return _rootNoteID; }
       set {
-        ReorderNotes((value - _rootNoteID));    // reorder selected notes by diff
+        ReorderNotes((value - _rootNoteID), Notes);    // reorder selected notes by diff
+        RefreshChart();
 
         _rootNoteID = value;
-        UpdateInfo();
         RaisePropertyChanged("RootNoteID");        
       }
     }
@@ -239,6 +239,7 @@ namespace WpfApplication1.Model {
     // RefreshChart
     public void RefreshChart() {
       UpdateChart = !UpdateChart;
+      UpdateInfo();   // Info field is binded to the chart 
     }
 
     // ToggleNote
@@ -288,21 +289,19 @@ namespace WpfApplication1.Model {
     }
 
     // Reorder selected notes
-    private void ReorderNotes(int diff) {
+    private void ReorderNotes(int diff, bool[] notes) {
       int j;
       bool[] NotesBuf = new bool[NOTE_COUNT];
 
-      Array.Copy(Notes, NotesBuf, Notes.Length);
-      Array.Clear(Notes, 0, Notes.Length);
+      Array.Copy(notes, NotesBuf, notes.Length);
+      Array.Clear(notes, 0, notes.Length);
 
       for (int i = 0; i < NotesBuf.Length; i++) {
         if (NotesBuf[i]) {
           j = (i + diff + NOTE_COUNT) % NOTE_COUNT;
-          Notes[j] = true;
+          notes[j] = true;
         }
       }
-
-      RefreshChart();
     }
 
 
@@ -360,6 +359,8 @@ namespace WpfApplication1.Model {
       int diff1, diff2;
       int noteId;
 
+      if (notes == null) return null;
+
       foreach (string noteID in notes.Split(',')) {
         noteList.Add(Convert.ToInt32(noteID));
       }
@@ -391,12 +392,36 @@ namespace WpfApplication1.Model {
           suffix[i] = "?";
         }
 
-        noteId = ((int)noteList[i] + _rootNoteID + NOTE_COUNT) % NOTE_COUNT;
+        noteId = ((int)noteList[i] + NOTE_COUNT) % NOTE_COUNT;
         chords += (NoteStr[noteId] + suffix[i]);
         if (i != noteList.Count - 1) chords += " ,";
       }
 
       return chords;
+    }
+
+
+    // Get active notes string in root C
+    private string Get_ActiveNotes_String(int in_root) {
+      string active_notes = null;
+      bool[] cpy_notes = new bool[NOTE_COUNT];
+      int count = 0;
+      int diff = in_root - _rootNoteID;
+
+      // reordering back according to root
+      Array.Copy(Notes, cpy_notes, NOTE_COUNT);
+      if(diff != 0)
+        ReorderNotes(diff, cpy_notes);
+
+      for(int i = 0; i < NOTE_COUNT; i++) {
+        if (cpy_notes[i]) {
+          if (count > 0) active_notes += ",";
+          active_notes += i;
+          count++;
+        }
+      }
+
+      return active_notes;
     }
 
 
@@ -406,9 +431,11 @@ namespace WpfApplication1.Model {
       string equalScales = "", childScales = "", parentScales = "", nearScalesDegreeOne = "", nearScalesDegreeTwo = "";
       string chords;
       int equalScale_count = 0;
+      string active_notes = Get_ActiveNotes_String(0);    // get active notes string according to 0 root
 
       Info = "";
 
+      // Check for equal scales
       using (XmlReader reader = XmlReader.Create(strPath)) {
         while (reader.ReadToFollowing("scale")) {
           reader.MoveToFirstAttribute();
@@ -420,7 +447,7 @@ namespace WpfApplication1.Model {
           reader.ReadToFollowing("notes");
           notes = reader.ReadElementContentAsString();
 
-          if (notes == activeScaleNotes) {
+          if (notes == active_notes) {
             if (equalScale_count > 0) equalScales += ", ";
             equalScales += (type + ":" + name);
             equalScale_count++;
@@ -428,7 +455,9 @@ namespace WpfApplication1.Model {
         }
       }
 
-      chords = GetChords(activeScaleNotes);
+      // Get chords
+      active_notes = Get_ActiveNotes_String(_rootNoteID);   // get active notes string according to selected root
+      chords = GetChords(active_notes);
 
       Info = "Equal Scales-> " + equalScales + Environment.NewLine;
       Info += "Chords-> " + chords + Environment.NewLine;
@@ -474,7 +503,7 @@ namespace WpfApplication1.Model {
                 id = Convert.ToInt32(noteID);
                 Notes[id] = true;
               }
-              ReorderNotes(_rootNoteID);    // reorder selected notes according to rootNoteID
+              ReorderNotes(_rootNoteID, Notes);    // reorder selected notes according to rootNoteID
               RefreshChart();
               break;
             }
@@ -482,9 +511,6 @@ namespace WpfApplication1.Model {
 
         }
       }
-
-      UpdateInfo();
-
     }
 
   }
