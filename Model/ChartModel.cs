@@ -96,11 +96,10 @@ namespace WpfApplication1.Model {
     public int RootNoteID {
       get { return _rootNoteID; }
       set {
-        ReorderNotes((value - _rootNoteID), Notes);    // reorder selected notes by diff
-        RefreshChart();
-
+        ReorderNotes((value - _rootNoteID), Notes);    // reorder selected notes by diff        
         _rootNoteID = value;
-        RaisePropertyChanged("RootNoteID");        
+        RaisePropertyChanged("RootNoteID");
+        RefreshChart();
       }
     }
 
@@ -449,10 +448,21 @@ namespace WpfApplication1.Model {
 
           if (notes == active_notes) {
             if (equalScale_count > 0) equalScales += ", ";
+
+            if(equalScale_count == 1) {   // set combobox
+              _loadScale = (type + ":" + name);
+              RaisePropertyChanged("LoadScale");
+            }
+
             equalScales += (type + ":" + name);
             equalScale_count++;
           }
         }
+      }
+
+      if (equalScale_count == 0) {
+        _loadScale = "";
+        RaisePropertyChanged("LoadScale");
       }
 
       // Get chords
